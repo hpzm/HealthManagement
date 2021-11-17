@@ -42,7 +42,7 @@
     <!--根据条件进行查询-->
     <select id="findByCondition" parameterType="string" resultType="com.example.pojo.CheckGroup">
         select * from t_checkgroup
-        <if test="value != null and value != '' and value.length > 0">
+        <if test="value != null and value.length > 0">
             where code = #{value} or name = #{value} or helpCode = #{value}
         </if>
     </select>
@@ -99,11 +99,24 @@
         from t_checkgroup
     </select>
 
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM t_checkgroup
+        WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByIdCheckGroupAndCheckItem" parameterType="int">
+        DELETE
+        FROM t_checkgroup_checkitem
+        WHERE checkgroup_id = #{id}
+    </delete>
+
     <!--根据套餐ID查询关联的检查组详情-->
     <select id="findCheckGroupById" parameterType="int" resultMap="findByIdResultMap">
         select *
         from t_checkgroup
         where id in (select checkgroup_id from t_setmeal_checkgroup where setmeal_id = #{setmeal_id})
     </select>
+
 
 </mapper>

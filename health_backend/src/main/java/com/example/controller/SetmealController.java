@@ -10,10 +10,7 @@ import com.example.pojo.Setmeal;
 import com.example.service.SetmealService;
 import com.example.utils.QiniuUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.JedisPool;
 
@@ -70,6 +67,43 @@ public class SetmealController {
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean) {
         return setmealService.pageQuery(queryPageBean);
+    }
+
+    //删除
+    @RequestMapping("/delete")
+    public Result delete(Integer id) {
+        try {
+            setmealService.deleteById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //服务调用失败
+            return new Result(false, "删除套餐失败");
+        }
+        return new Result(true, "删除套餐成功！");
+    }
+
+    @RequestMapping("/findById")
+    public Result findById(Integer id) {
+        try {
+            Setmeal setmeal = setmealService.findSetmealById(id);
+            return new Result(true, MessageConstant.QUERY_SETMEAL_SUCCESS, setmeal);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //服务调用失败
+            return new Result(false, MessageConstant.QUERY_SETMEAL_FAIL);
+        }
+    }
+
+    //编辑检查项
+    @RequestMapping("/edit")
+    public Result edit(@RequestBody Setmeal setmeal, Integer[] checkgroupIds) {
+        try {
+            setmealService.edit(setmeal,checkgroupIds);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, "修改套餐失败！");
+        }
+        return new Result(true, "修改套餐成功！");
     }
 
 }

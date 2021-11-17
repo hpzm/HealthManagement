@@ -17,5 +17,11 @@ public interface SetmealService {
 
     public Setmeal findById(int id);
 
+    public Setmeal findSetmealById(int id);
+
     public List<Map<String,Object>> findSetmealCount();
+
+    public void deleteById(Integer id);
+
+    public void edit(Setmeal setmeal, Integer[] checkgroupIds);
 }

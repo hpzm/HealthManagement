@@ -1,7 +1,6 @@
 package com.example.dao;
 
 import com.github.pagehelper.Page;
-import com.example.pojo.CheckGroup;
 import com.example.pojo.Setmeal;
 
 import java.util.List;
@@ -19,7 +18,15 @@ public interface SetmealDao {
 
     public Setmeal findById(int id);
 
+    public Setmeal findSetmealById(int id);
+
     Object findById4Detail(Integer id);
 
     public List<Map<String, Object>> findSetmealCount();
+
+    public void deleteSetmealAndCheckGroupById(Integer id);
+
+    public void deleteById(Integer id);
+
+    public void edit(Setmeal setmeal);
 }

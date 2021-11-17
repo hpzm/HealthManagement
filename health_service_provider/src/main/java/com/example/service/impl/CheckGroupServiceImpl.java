@@ -5,6 +5,7 @@ import com.example.dao.CheckGroupDao;
 import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
 import com.example.pojo.CheckGroup;
+import com.example.pojo.CheckItem;
 import com.example.service.CheckGroupService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -42,7 +43,9 @@ public class CheckGroupServiceImpl implements CheckGroupService {
         String queryString = queryPageBean.getQueryString();
         PageHelper.startPage(currentPage, pageSize);
         Page<CheckGroup> page = checkGroupDao.findByCondition(queryString);
-        return new PageResult(page.getTotal(), page.getResult());
+        long total = page.getTotal();
+        List<CheckGroup> rows = page.getResult();
+        return new PageResult(total, rows);
     }
 
     //根据ID查询检查组
@@ -68,6 +71,12 @@ public class CheckGroupServiceImpl implements CheckGroupService {
 
     public List<CheckGroup> findAll() {
         return checkGroupDao.findAll();
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        checkGroupDao.deleteByIdCheckGroupAndCheckItem(id);
+        checkGroupDao.deleteById(id);
     }
 
     //建立检查组和检查项多对多关系

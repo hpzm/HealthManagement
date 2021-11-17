@@ -117,12 +117,40 @@ public class SetmealServiceImpl implements SetmealService {
 
     //根据套餐ID查询套餐详情（套餐基本信息、套餐对应的检查组信息、检查组对应的检查项信息）
     public Setmeal findById(int id) {
-        return setmealDao.findById(id);
+        return setmealDao.findSetmealById(id);
+    }
+
+    @Override
+    public Setmeal findSetmealById(int id) {
+        return setmealDao.findSetmealById(id);
     }
 
     //查询套餐预约占比数据
     public List<Map<String, Object>> findSetmealCount() {
         return setmealDao.findSetmealCount();
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        setmealDao.deleteSetmealAndCheckGroupById(id);
+        setmealDao.deleteById(id);
+        generateMobileStaticHtml();
+    }
+
+    @Override
+    public void edit(Setmeal setmeal, Integer[] checkgroupIds) {
+        setmealDao.edit(setmeal);
+        Integer setmealId = setmeal.getId();
+        setmealDao.deleteSetmealAndCheckGroupById(setmealId);
+        this.setSetmealAndCheckgroup(setmealId, checkgroupIds);
+        //将图片名称保存到Redis集合中
+        String fileName = setmeal.getImg();
+        //判断 fileName 元素是否是集合 RedisConstant.SETMEAL_PIC_DB_RESOURCES 的成员
+        if (!jedisPool.getResource().sismember(RedisConstant.SETMEAL_PIC_DB_RESOURCES, fileName)) {
+            jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES, fileName);
+        }
+        //当添加套餐后需要重新生成静态页面（套餐列表页面、套餐详情页面）
+        generateMobileStaticHtml();
     }
 
     //设置套餐和检查组多对多关系，操作t_setmeal_checkgroup

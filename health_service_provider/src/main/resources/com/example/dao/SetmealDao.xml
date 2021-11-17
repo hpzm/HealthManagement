@@ -39,7 +39,7 @@
 
     <!--设置套餐和检查组多对多关系-->
     <insert id="setSetmealAndCheckGroup" parameterType="map">
-        insert into t_setmeal_checkgroup(setmeal_id, checkgroup_id)
+        insert into t_setmeal_checkgroup (setmeal_id, checkgroup_id)
         values (#{setmealId}, #{checkgroupId})
     </insert>
 
@@ -76,5 +76,57 @@
         where o.setmeal_id = s.id
         group by s.name
     </select>
+
+    <update id="edit" parameterType="com.example.pojo.Setmeal">
+        update t_setmeal
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="helpCode != null">
+                helpCode = #{helpCode},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="img != null">
+                img = #{img},
+            </if>
+            <if test="attention != null">
+                attention = #{attention},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="findSetmealById" parameterType="int" resultType="com.example.pojo.Setmeal">
+        select *
+        from t_setmeal
+        where id = #{id}
+    </select>
+
+    <delete id="deleteSetmealAndCheckGroupById" parameterType="int">
+        DELETE
+        FROM t_setmeal_checkgroup
+        WHERE setmeal_id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM t_setmeal
+        WHERE id = #{id}
+    </delete>
 
 </mapper>
