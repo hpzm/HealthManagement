@@ -117,6 +117,12 @@
         where id = #{id}
     </select>
 
+    <select id="findCheckGroupsBySetMealId" parameterType="int" resultType="int">
+        SELECT checkgroup_id
+        FROM t_setmeal_checkgroup
+        WHERE setmeal_id = #{id}
+    </select>
+
     <delete id="deleteSetmealAndCheckGroupById" parameterType="int">
         DELETE
         FROM t_setmeal_checkgroup

@@ -25,10 +25,10 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="130" height="60" uuid="cedbff82-d97a-47ad-ba89-27a4b08e0200"/>
-<!--				<imageExpression><![CDATA["http://www.itcast.cn/2018czgw/images/logo.png"]]></imageExpression>-->
-			</image>
+<!--			<image>-->
+<!--				<reportElement x="0" y="0" width="130" height="60" uuid="cedbff82-d97a-47ad-ba89-27a4b08e0200"/>-->
+<!--&lt;!&ndash;				<imageExpression><![CDATA["http://www.itcast.cn/2018czgw/images/logo.png"]]></imageExpression>&ndash;&gt;-->
+<!--			</image>-->
 		</band>
 	</title>
 	<columnHeader>

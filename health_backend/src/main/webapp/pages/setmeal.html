@@ -504,6 +504,11 @@
                     if (res.data.flag) {
                         //为tableData赋值，基于VUE数据绑定将数据展示到表格中
                         this.tableData = res.data.data;
+                        axios.get("/setmeal/findCheckGroupsBySetMealId.do?id=" + row.id).then((res) => {
+                            if (res.data.flag) {
+                                this.checkgroupIds = res.data.data;
+                            }
+                        });
                     } else {
                         this.$message.error(res.data.message);
                     }

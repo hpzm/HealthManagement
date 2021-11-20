@@ -153,6 +153,11 @@ public class SetmealServiceImpl implements SetmealService {
         generateMobileStaticHtml();
     }
 
+    @Override
+    public List<Integer> findCheckGroupsBySetMealId(Integer id) {
+        return setmealDao.findCheckGroupsBySetMealId(id);
+    }
+
     //设置套餐和检查组多对多关系，操作t_setmeal_checkgroup
     public void setSetmealAndCheckgroup(Integer setmealId, Integer[] checkgroupIds) {
         if (checkgroupIds != null && checkgroupIds.length > 0) {

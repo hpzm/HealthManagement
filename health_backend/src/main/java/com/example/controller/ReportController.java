@@ -45,7 +45,7 @@ public class ReportController {
     public Result getMemberReport() {
         Map<String, Object> map = new HashMap();
         List<String> months = new ArrayList();
-        Calendar calendar = Calendar.getInstance();//获得日历对象，模拟时间就是当前时间
+        Calendar calendar = Calendar.getInstance();//获得日历对象，时间就是当前时间
         //计算过去一年的12个月
         calendar.add(Calendar.MONTH, -12);//获得当前时间往前推12个月的时间
         for (int i = 0; i < 12; i++) {

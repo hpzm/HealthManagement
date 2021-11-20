@@ -20,11 +20,12 @@
     <!--<security:http security="none" pattern="/pages/a.html"></security:http>
     <security:http security="none" pattern="/pages/b.html"></security:http>-->
 <!--    <security:http security="none" pattern="/pages/**"></security:http>-->
-    <security:http security="none" pattern="/login.html"></security:http>
-    <security:http security="none" pattern="/css/**"></security:http>
-    <security:http security="none" pattern="/img/**"></security:http>
-    <security:http security="none" pattern="/js/**"></security:http>
-    <security:http security="none" pattern="/plugins/**"></security:http>
+    <security:http security="none" pattern="/login.html" />
+    <security:http security="none" pattern="/css/**" />
+    <security:http security="none" pattern="/img/**" />
+    <security:http security="none" pattern="/js/**" />
+    <security:http security="none" pattern="/plugins/**" />
+    <security:http security="none" pattern="/template/**" />
 
     <!--
         auto-config:自动配置，如果设置为true，表示自动应用一些默认配置，比如框架会提供一个默认的登录页面
@@ -54,7 +55,8 @@
                 password-parameter="password"
                 login-processing-url="/login.do"
                 default-target-url="/pages/main.html"
-                authentication-failure-url="/login.html" />
+                authentication-failure-url="/login.html"
+        />
 
         <!--
           csrf：对应CsrfFilter过滤器
@@ -92,6 +94,6 @@
           class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
     <!--开启注解方式权限控制-->
-    <security:global-method-security pre-post-annotations="enabled" />
+    <security:global-method-security pre-post-annotations="enabled"></security:global-method-security>
 
 </beans>

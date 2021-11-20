@@ -29,4 +29,6 @@ public interface SetmealDao {
     public void deleteById(Integer id);
 
     public void edit(Setmeal setmeal);
+
+    public List<Integer> findCheckGroupsBySetMealId(Integer id);
 }

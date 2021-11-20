@@ -376,7 +376,7 @@
                     if (res.data.flag) {
                         this.tableData = res.data.data;
                         //发送ajax请求，根据检查组id查询需要勾选的检查项id
-                        axios.get("/checkitem/findCheckItemIdsByCheckGroupId.do?checkgroupId=" + row.id).then((res) => {
+                        axios.get("/checkgroup/findCheckItemIdsByCheckGroupId.do?id=" + row.id).then((res) => {
                             if (res.data.flag) {
                                 this.checkitemIds = res.data.data;
                             }

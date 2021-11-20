@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.JedisPool;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -67,6 +68,18 @@ public class SetmealController {
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean) {
         return setmealService.pageQuery(queryPageBean);
+    }
+
+    //根据检查组ID查询检查组包含的多个检查项ID
+    @RequestMapping("/findCheckGroupsBySetMealId")
+    public Result findCheckGroupsBySetMealId(Integer id) {
+        try {
+            List<Integer> checkGroupIds = setmealService.findCheckGroupsBySetMealId(id);
+            return new Result(true, MessageConstant.QUERY_CHECKGROUP_SUCCESS, checkGroupIds);//查询成功
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, MessageConstant.QUERY_CHECKGROUP_FAIL);//查询失败
+        }
     }
 
     //删除

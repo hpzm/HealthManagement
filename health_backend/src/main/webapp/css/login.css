@@ -119,9 +119,10 @@ html,body {
   
 }
 .logoInfo .logo{
+	/*background: url(../img/loginLogo.png) no-repeat;*/
 	background: url(../img/loginLogo.png) no-repeat;
 	display:inline-block;
-	width: 200px;
+	width: 40px;
 	height: 30px;
   display: inline-block;
   vertical-align: middle;

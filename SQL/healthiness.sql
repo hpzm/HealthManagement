@@ -29,7 +29,7 @@ CREATE TABLE `t_checkgroup` (
   `remark` varchar(128) DEFAULT NULL,
   `attention` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_checkgroup` */
 
@@ -67,7 +67,7 @@ CREATE TABLE `t_checkitem` (
   `attention` varchar(128) DEFAULT NULL,
   `remark` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_checkitem` */
 
@@ -90,11 +90,11 @@ CREATE TABLE `t_member` (
   `birthday` date DEFAULT NULL,
   `remark` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_member` */
 
-insert  into `t_member`(`id`,`fileNumber`,`name`,`sex`,`idCard`,`phoneNumber`,`regTime`,`password`,`email`,`birthday`,`remark`) values (82,NULL,'小明','1','123456789000999999','18811679442','2019-03-08',NULL,NULL,NULL,NULL),(83,NULL,'王美丽','1','132333333333333','13412345678','2019-03-11',NULL,NULL,NULL,NULL),(92,NULL,'王鹏','1','411381199901303010','18337723923','2021-11-13',NULL,NULL,NULL,NULL);
+insert  into `t_member`(`id`,`fileNumber`,`name`,`sex`,`idCard`,`phoneNumber`,`regTime`,`password`,`email`,`birthday`,`remark`) values (1,NULL,NULL,NULL,NULL,NULL,'2020-09-01',NULL,NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,'2020-10-02',NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,'2020-10-01',NULL,NULL,NULL,NULL),(4,NULL,NULL,NULL,NULL,NULL,'2020-10-03',NULL,NULL,NULL,NULL),(5,NULL,NULL,NULL,NULL,NULL,'2020-10-04',NULL,NULL,NULL,NULL),(6,NULL,NULL,NULL,NULL,NULL,'2020-10-05',NULL,NULL,NULL,NULL),(7,NULL,NULL,NULL,NULL,NULL,'2020-11-06',NULL,NULL,NULL,NULL),(8,NULL,NULL,NULL,NULL,NULL,'2020-11-17',NULL,NULL,NULL,NULL),(9,NULL,NULL,NULL,NULL,NULL,'2020-11-18',NULL,NULL,NULL,NULL),(10,NULL,NULL,NULL,NULL,NULL,'2020-11-19',NULL,NULL,NULL,NULL),(11,NULL,NULL,NULL,NULL,NULL,'2020-11-20',NULL,NULL,NULL,NULL),(12,NULL,NULL,NULL,NULL,NULL,'2020-11-21',NULL,NULL,NULL,NULL),(13,NULL,NULL,NULL,NULL,NULL,'2020-12-06',NULL,NULL,NULL,NULL),(14,NULL,NULL,NULL,NULL,NULL,'2020-12-17',NULL,NULL,NULL,NULL),(15,NULL,NULL,NULL,NULL,NULL,'2020-12-18',NULL,NULL,NULL,NULL),(16,NULL,NULL,NULL,NULL,NULL,'2020-12-19',NULL,NULL,NULL,NULL),(17,NULL,NULL,NULL,NULL,NULL,'2020-12-20',NULL,NULL,NULL,NULL),(18,NULL,NULL,NULL,NULL,NULL,'2020-12-21',NULL,NULL,NULL,NULL),(19,NULL,NULL,NULL,NULL,NULL,'2020-12-01',NULL,NULL,NULL,NULL),(82,NULL,'小明','1','123456789000999999','18811679442','2020-09-08',NULL,NULL,NULL,NULL),(83,NULL,'王美丽','1','132333333333333','13412345678','2020-09-11',NULL,NULL,NULL,NULL),(92,NULL,'王鹏','1','411381199901303010','18337723923','2021-11-13',NULL,NULL,NULL,NULL),(93,NULL,NULL,NULL,NULL,NULL,'2021-01-06',NULL,NULL,NULL,NULL),(94,NULL,NULL,NULL,NULL,NULL,'2021-01-17',NULL,NULL,NULL,NULL),(95,NULL,NULL,NULL,NULL,NULL,'2021-01-18',NULL,NULL,NULL,NULL),(96,NULL,NULL,NULL,NULL,NULL,'2021-01-19',NULL,NULL,NULL,NULL),(97,NULL,NULL,NULL,NULL,NULL,'2021-01-20',NULL,NULL,NULL,NULL),(98,NULL,NULL,NULL,NULL,NULL,'2021-01-21',NULL,NULL,NULL,NULL),(99,NULL,NULL,NULL,NULL,NULL,'2021-01-01',NULL,NULL,NULL,NULL),(100,NULL,NULL,NULL,NULL,NULL,'2021-01-03',NULL,NULL,NULL,NULL),(101,NULL,NULL,NULL,NULL,NULL,'2021-01-04',NULL,NULL,NULL,NULL),(102,NULL,NULL,NULL,NULL,NULL,'2021-01-05',NULL,NULL,NULL,NULL),(103,NULL,NULL,NULL,NULL,NULL,'2021-02-06',NULL,NULL,NULL,NULL),(104,NULL,NULL,NULL,NULL,NULL,'2021-02-17',NULL,NULL,NULL,NULL),(105,NULL,NULL,NULL,NULL,NULL,'2021-02-18',NULL,NULL,NULL,NULL),(106,NULL,NULL,NULL,NULL,NULL,'2021-02-19',NULL,NULL,NULL,NULL),(107,NULL,NULL,NULL,NULL,NULL,'2021-02-20',NULL,NULL,NULL,NULL),(108,NULL,NULL,NULL,NULL,NULL,'2021-02-21',NULL,NULL,NULL,NULL),(109,NULL,NULL,NULL,NULL,NULL,'2021-03-06',NULL,NULL,NULL,NULL),(110,NULL,NULL,NULL,NULL,NULL,'2021-03-17',NULL,NULL,NULL,NULL),(111,NULL,NULL,NULL,NULL,NULL,'2021-03-18',NULL,NULL,NULL,NULL),(112,NULL,NULL,NULL,NULL,NULL,'2021-03-19',NULL,NULL,NULL,NULL),(113,NULL,NULL,NULL,NULL,NULL,'2021-03-20',NULL,NULL,NULL,NULL),(114,NULL,NULL,NULL,NULL,NULL,'2021-03-21',NULL,NULL,NULL,NULL),(115,NULL,NULL,NULL,NULL,NULL,'2021-03-01',NULL,NULL,NULL,NULL),(116,NULL,NULL,NULL,NULL,NULL,'2021-04-06',NULL,NULL,NULL,NULL),(117,NULL,NULL,NULL,NULL,NULL,'2021-04-17',NULL,NULL,NULL,NULL),(118,NULL,NULL,NULL,NULL,NULL,'2021-04-18',NULL,NULL,NULL,NULL),(119,NULL,NULL,NULL,NULL,NULL,'2021-05-06',NULL,NULL,NULL,NULL),(120,NULL,NULL,NULL,NULL,NULL,'2021-05-17',NULL,NULL,NULL,NULL),(121,NULL,NULL,NULL,NULL,NULL,'2021-06-06',NULL,NULL,NULL,NULL),(122,NULL,NULL,NULL,NULL,NULL,'2021-06-17',NULL,NULL,NULL,NULL),(123,NULL,NULL,NULL,NULL,NULL,'2021-07-06',NULL,NULL,NULL,NULL),(124,NULL,NULL,NULL,NULL,NULL,'2021-07-17',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `t_menu` */
 
@@ -135,11 +135,11 @@ CREATE TABLE `t_order` (
   KEY `key_setmeal_id` (`setmeal_id`),
   CONSTRAINT `key_member_id` FOREIGN KEY (`member_id`) REFERENCES `t_member` (`id`),
   CONSTRAINT `key_setmeal_id` FOREIGN KEY (`setmeal_id`) REFERENCES `t_setmeal` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_order` */
 
-insert  into `t_order`(`id`,`member_id`,`orderDate`,`orderType`,`orderStatus`,`setmeal_id`) values (2,82,'2019-03-08','微信预约','未到诊',6),(3,82,'2019-03-11','微信预约','未到诊',11),(11,92,'2021-11-14','微信预约','未到诊',5);
+insert  into `t_order`(`id`,`member_id`,`orderDate`,`orderType`,`orderStatus`,`setmeal_id`) values (11,92,'2021-11-14','微信预约','已到诊',5),(13,1,NULL,NULL,NULL,5),(14,2,NULL,NULL,NULL,6),(15,3,NULL,NULL,NULL,7),(16,4,NULL,NULL,NULL,9),(17,5,NULL,NULL,NULL,11);
 
 /*Table structure for table `t_ordersetting` */
 
@@ -155,7 +155,25 @@ CREATE TABLE `t_ordersetting` (
 
 /*Data for the table `t_ordersetting` */
 
-insert  into `t_ordersetting`(`id`,`orderDate`,`number`,`reservations`) values (72,'2021-11-10',100,100),(73,'2021-11-11',100,100),(74,'2021-11-12',100,100),(75,'2021-11-13',100,0),(76,'2021-11-14',100,1),(78,'2021-11-16',100,0),(79,'2021-11-17',100,0),(80,'2021-11-18',100,0),(81,'2021-11-19',200,0),(82,'2021-11-20',300,0),(83,'2021-11-21',100,0),(84,'2021-11-22',100,0),(85,'2021-11-23',100,0),(86,'2021-11-24',100,0),(87,'2021-11-25',100,0),(88,'2021-11-26',100,0),(89,'2021-11-27',100,0),(90,'2021-11-28',100,0),(91,'2021-11-29',100,0),(92,'2021-11-30',100,0),(93,'2021-12-01',100,0),(94,'2021-12-02',100,0),(95,'2021-12-03',100,0),(96,'2021-12-04',100,0),(97,'2021-12-05',100,0),(98,'2021-12-06',100,0),(99,'2021-12-07',100,0),(100,'2021-12-08',100,0),(101,'2021-12-09',100,0),(102,'2021-12-10',100,0),(103,'2021-12-11',100,0),(104,'2021-12-12',100,0),(105,'2021-12-13',100,0),(106,'2021-12-14',100,0),(107,'2021-12-15',100,0),(108,'2021-12-16',100,0),(109,'2021-12-17',100,0),(110,'2021-12-18',100,0),(111,'2021-12-19',100,0),(112,'2021-12-20',100,0),(113,'2021-12-21',100,0),(114,'2021-12-22',100,0),(115,'2021-12-23',100,0),(116,'2021-12-24',100,0),(117,'2021-12-25',100,0),(118,'2021-12-26',100,0),(119,'2021-12-27',100,0),(120,'2021-12-28',100,0),(121,'2021-12-29',100,0),(122,'2021-12-30',100,0),(123,'2021-12-31',100,0);
+insert  into `t_ordersetting`(`id`,`orderDate`,`number`,`reservations`) values (72,'2021-11-10',100,100),(73,'2021-11-11',100,100),(74,'2021-11-12',100,100),(75,'2021-11-13',100,0),(76,'2021-11-14',100,1),(78,'2021-11-16',100,0),(79,'2021-11-17',100,0),(80,'2021-11-18',200,0),(81,'2021-11-19',200,0),(82,'2021-11-20',300,0),(83,'2021-11-21',100,0),(84,'2021-11-22',100,0),(85,'2021-11-23',100,0),(86,'2021-11-24',100,0),(87,'2021-11-25',100,0),(88,'2021-11-26',100,0),(89,'2021-11-27',100,0),(90,'2021-11-28',100,0),(91,'2021-11-29',100,0),(92,'2021-11-30',100,0),(93,'2021-12-01',100,0),(94,'2021-12-02',100,0),(95,'2021-12-03',100,0),(96,'2021-12-04',100,0),(97,'2021-12-05',100,0),(98,'2021-12-06',100,0),(99,'2021-12-07',100,0),(100,'2021-12-08',100,0),(101,'2021-12-09',100,0),(102,'2021-12-10',100,0),(103,'2021-12-11',100,0),(104,'2021-12-12',100,0),(105,'2021-12-13',100,0),(106,'2021-12-14',100,0),(107,'2021-12-15',100,0),(108,'2021-12-16',100,0),(109,'2021-12-17',100,0),(110,'2021-12-18',100,0),(111,'2021-12-19',100,0),(112,'2021-12-20',100,0),(113,'2021-12-21',100,0),(114,'2021-12-22',100,0),(115,'2021-12-23',100,0),(116,'2021-12-24',100,0),(117,'2021-12-25',100,0),(118,'2021-12-26',100,0),(119,'2021-12-27',100,0),(120,'2021-12-28',100,0),(121,'2021-12-29',100,0),(122,'2021-12-30',100,0),(123,'2021-12-31',100,0);
+
+/*Table structure for table `t_ordersettinglist` */
+
+DROP TABLE IF EXISTS `t_ordersettinglist`;
+
+CREATE TABLE `t_ordersettinglist` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `orderDate` date DEFAULT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `phoneNumber` varchar(11) DEFAULT NULL,
+  `orderType` varchar(8) DEFAULT NULL,
+  `orderStatus` varchar(8) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+
+/*Data for the table `t_ordersettinglist` */
+
+insert  into `t_ordersettinglist`(`id`,`orderDate`,`name`,`phoneNumber`,`orderType`,`orderStatus`) values (11,'2021-11-14','王鹏','18337723923','微信预约','已到诊');
 
 /*Table structure for table `t_permission` */
 
@@ -239,11 +257,11 @@ CREATE TABLE `t_setmeal` (
   `attention` varchar(128) DEFAULT NULL,
   `img` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_setmeal` */
 
-insert  into `t_setmeal`(`id`,`name`,`code`,`helpCode`,`sex`,`age`,`price`,`remark`,`attention`,`img`) values (5,'入职无忧体检套餐（男女通用）','0001','RZTJ','0','18-60',300,'入职体检套餐',NULL,'03a36073-a140-4942-9b9b-712cecb144901.jpg'),(6,'粉红珍爱(女)升级TM12项筛查体检套餐','0002','FHZA','2','18-60',1200,'本套餐针对宫颈(TCT检查、HPV乳头瘤病毒筛查）、乳腺（彩超，癌抗125），甲状腺（彩超，甲功验血）以及胸片，血常规肝功等有全面检查，非常适合女性全面疾病筛查使用。',NULL,'ac3b5a4d-33a5-4f37-bd49-99e06ce17d202.jpg'),(7,'阳光爸妈升级肿瘤12项筛查（男女单人）体检套餐','0003','YGBM','0','55-100',1400,'本套餐主要针对常见肿瘤筛查，肝肾、颈动脉、脑血栓、颅内血流筛查，以及风湿、颈椎、骨密度检查。',NULL,'ee7dcf84-8a3a-4ab9-b981-9c5d272fd58d3.jpg'),(9,'孕前检查套餐（女）-精英版','0005','YQJCNV','2','18-50',1500,'孕前检查套餐（女）-精英版',NULL,'3bd90d2c-4e82-42a1-a401-882c88b06a1a2.jpg'),(11,'珍爱高端升级肿瘤12项筛查（男女单人）','0006','ZAGD','0','14-20',2400,'本套餐是一款针对生化五项检查，心，肝，胆，胃，甲状腺，颈椎，肺功能，脑部检查（经颅多普勒）以及癌症筛查，适合大众人群体检的套餐。',NULL,'e373b2eb-0e50-4e95-a09b-03f2c1ee1d351.jpg'),(17,'00','00','00','0','00',0,'00','00','882abc55-0120-4cb6-afd1-8c40cce93a171.jpg');
+insert  into `t_setmeal`(`id`,`name`,`code`,`helpCode`,`sex`,`age`,`price`,`remark`,`attention`,`img`) values (5,'入职无忧体检套餐（男女通用）','0001','RZTJ','0','18-60',300,'入职体检套餐',NULL,'03a36073-a140-4942-9b9b-712cecb144901.jpg'),(6,'粉红珍爱(女)升级TM12项筛查体检套餐','0002','FHZA','2','18-60',1200,'本套餐针对宫颈(TCT检查、HPV乳头瘤病毒筛查）、乳腺（彩超，癌抗125），甲状腺（彩超，甲功验血）以及胸片，血常规肝功等有全面检查，非常适合女性全面疾病筛查使用。',NULL,'ac3b5a4d-33a5-4f37-bd49-99e06ce17d202.jpg'),(7,'阳光爸妈升级肿瘤12项筛查（男女单人）体检套餐','0003','YGBM','0','55-100',1400,'本套餐主要针对常见肿瘤筛查，肝肾、颈动脉、脑血栓、颅内血流筛查，以及风湿、颈椎、骨密度检查。',NULL,'ee7dcf84-8a3a-4ab9-b981-9c5d272fd58d3.jpg'),(9,'孕前检查套餐（女）-精英版','0005','YQJCNV','2','18-50',1500,'孕前检查套餐（女）-精英版',NULL,'3bd90d2c-4e82-42a1-a401-882c88b06a1a2.jpg'),(11,'珍爱高端升级肿瘤12项筛查（男女单人）','0006','ZAGD','0','14-20',2400,'本套餐是一款针对生化五项检查，心，肝，胆，胃，甲状腺，颈椎，肺功能，脑部检查（经颅多普勒）以及癌症筛查，适合大众人群体检的套餐。',NULL,'e373b2eb-0e50-4e95-a09b-03f2c1ee1d351.jpg');
 
 /*Table structure for table `t_setmeal_checkgroup` */
 

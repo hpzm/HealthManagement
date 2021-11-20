@@ -61,6 +61,7 @@ public class ReportServiceImpl implements ReportService {
         List<Map> hotSetmeal = orderDao.findHotSetmeal();
 
         Map<String, Object> result = new HashMap<>();
+
         result.put("reportDate", today);
         result.put("todayNewMember", todayNewMember);
         result.put("totalMember", totalMember);
@@ -73,6 +74,7 @@ public class ReportServiceImpl implements ReportService {
         result.put("thisWeekVisitsNumber", thisWeekVisitsNumber);
         result.put("thisMonthVisitsNumber", thisMonthVisitsNumber);
         result.put("hotSetmeal", hotSetmeal);
+
         return result;
     }
 }
