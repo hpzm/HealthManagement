@@ -45,11 +45,11 @@
 <body class="hold-transition">
 <div id="app">
     <div class="content-header">
-        <h1>会员管理<small>会员列表</small></h1>
+        <h1>会员管理<small>体检处理</small></h1>
         <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>会员管理</el-breadcrumb-item>
-            <el-breadcrumb-item>会员列表</el-breadcrumb-item>
+            <el-breadcrumb-item>体检处理</el-breadcrumb-item>
         </el-breadcrumb>
     </div>
     <div class="app-container">
@@ -62,34 +62,28 @@
             </div>
             <el-table size="small" current-row-key="id" :data="dataList" stripe highlight-current-row>
                 <el-table-column type="index" align="center" label="序号"></el-table-column>
-<!--                <el-table-column prop="fileNumber" label="档案号" align="center"></el-table-column>-->
+                <el-table-column prop="orderDate" label="体检时间" align="center"></el-table-column>
                 <el-table-column prop="name" label="姓名" align="center"></el-table-column>
-                <el-table-column label="性别" align="center">
+                <el-table-column prop="phoneNumber" label="手机号码" align="center"></el-table-column>
+                <el-table-column prop="setmealName" label="检测套餐" align="center"></el-table-column>
+                <el-table-column prop="remark" label="报告状态" align="center"></el-table-column>
+                <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
-                        <span>{{ scope.row.sex == '0' ? '不限' : scope.row.sex == '1' ? '男' : '女'}}</span>
+                        <el-button type="primary" size="mini" @click="handleUpdate1(scope.row)">结果未出</el-button>
+                        <el-button size="mini" type="danger" @click="handleUpdate2(scope.row)">结果已出</el-button>
                     </template>
                 </el-table-column>
-<!--                <el-table-column prop="age" label="年龄" align="center"></el-table-column>-->
-                <el-table-column prop="phoneNumber" label="手机号码" align="center"></el-table-column>
-<!--                <el-table-column prop="email" label="邮箱" align="center"></el-table-column>-->
-                <el-table-column prop="regTime" label="注册时间" align="center" :formatter="formatDate" ></el-table-column>
-<!--                <el-table-column label="操作" align="center">-->
-<!--                    <template slot-scope="scope">-->
-<!--                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>-->
-<!--                        <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>-->
-<!--                    </template>-->
-<!--                </el-table-column>-->
             </el-table>
-            <div class="pagination-container">
-                <el-pagination
-                        class="pagiantion"
-                        @current-change="handleCurrentChange"
-                        :current-page="pagination.currentPage"
-                        :page-size="pagination.pageSize"
-                        layout="total, prev, pager, next, jumper"
-                        :total="pagination.total">
-                </el-pagination>
-            </div>
+<!--            <div class="pagination-container">-->
+<!--                <el-pagination-->
+<!--                        class="pagiantion"-->
+<!--                        @current-change="handleCurrentChange"-->
+<!--                        :current-page="pagination.currentPage"-->
+<!--                        :page-size="pagination.pageSize"-->
+<!--                        layout="total, prev, pager, next, jumper"-->
+<!--                        :total="pagination.total">-->
+<!--                </el-pagination>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
@@ -99,7 +93,6 @@
     var vue = new Vue({
         el: '#app',
         data: {
-            activeName: 'first',//添加/编辑窗口Tab标签名称
             pagination: {//分页相关属性
                 currentPage: 1,
                 pageSize: 10,
@@ -112,16 +105,6 @@
             this.findPage();
         },
         methods: {
-            formatDate(row, column) {
-                // 获取单元格数据
-                let data = row[column.property]
-                if(data == null) {
-                    return null
-                }
-                let dt = new Date(data)
-                // return dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds()
-                return dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate()
-            },
             //分页查询
             findPage() {
                 //封装分页查询条件
@@ -131,16 +114,46 @@
                     queryString: this.pagination.queryString
                 };
                 //发送ajax请求，进程分页查询
-                axios.post("/member/findPage.do", param).then((res) => {
-                    this.dataList = res.data.rows;
+                axios.post("/examResult/findRemarkPage.do", param).then((res) => {
                     this.pagination.total = res.data.total;
+                    this.dataList = res.data.rows;
+                });
+            },
+            //结果未出
+            handleUpdate1(row) {
+                axios.get("/order/updateRemark1.do?id=" + row.id).then((res) => {
+                    if (res.data.flag) {
+                        this.findPage();
+                        this.$message({
+                            type: 'success',
+                            message: res.data.message
+                        });
+                    }else {
+                        //执行失败，弹出提示信息
+                        this.$message.error(res.data.message);
+                    }
+                });
+            },
+            //结果已出
+            handleUpdate2(row) {
+                axios.get("/order/updateRemark2.do?id=" + row.id).then((res) => {
+                    if (res.data.flag) {
+                        this.findPage();
+                        this.$message({
+                            type: 'success',
+                            message: res.data.message
+                        });
+                    }else {
+                        //执行失败，弹出提示信息
+                        this.$message.error(res.data.message);
+                    }
                 });
             },
             //切换页码
             handleCurrentChange(currentPage) {
                 this.pagination.currentPage = currentPage;
                 this.findPage();
-            }
+            },
         }
     })
 </script>

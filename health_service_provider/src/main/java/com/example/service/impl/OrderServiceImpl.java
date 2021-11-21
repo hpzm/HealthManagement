@@ -83,7 +83,9 @@ public class OrderServiceImpl implements OrderService {
         order.setMemberId(member.getId());//设置会员ID
         order.setOrderDate(DateUtils.parseString2Date(orderDate));//预约日期
         order.setOrderType((String) map.get("orderType"));//预约类型
+        order.setRemark("结果未出");
         order.setOrderStatus(Order.ORDERSTATUS_NO);//到诊状态
+
         order.setSetmealId(Integer.parseInt((String) map.get("setmealId")));//套餐ID
         orderDao.add(order);
 
@@ -102,6 +104,20 @@ public class OrderServiceImpl implements OrderService {
             map.put("orderDate", DateUtils.parseDate2String(orderDate));
         }
         return map;
+    }
+
+    public List<Map> findCheckRecord(String telephone) {
+        return orderDao.findCheckRecord(telephone);
+    }
+
+    //结果未出
+    public void updateRemark1(Integer id) {
+        orderDao.updateRemark1(id);
+    }
+
+    //结果已出
+    public void updateRemark2(Integer id) {
+        orderDao.updateRemark2(id);
     }
 
 }

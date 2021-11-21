@@ -17,6 +17,7 @@ public class Order implements Serializable{
     private String orderType;//预约类型 电话预约/微信预约
     private String orderStatus;//预约状态（是否到诊）
     private Integer setmealId;//体检套餐id
+    private String remark;
 
     public Order() {
     }
@@ -46,6 +47,14 @@ public class Order implements Serializable{
         this.memberId=memberId;
         this.orderDate=order_date;
         this.setmealId=setmealId;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Integer getId() {

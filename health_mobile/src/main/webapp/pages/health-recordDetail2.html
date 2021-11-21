@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no,minimal-ui">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/asset-favico.ico">
+    <title>健康档案详情</title>
+    <link rel="stylesheet" href="../plugins/elementui/index.css"/>
+    <link rel="stylesheet" href="../css/page-health-orderInfo.css"/>
+    <script src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/healthmobile.js"></script>
+    <script src="../plugins/datapicker/datePicker.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../plugins/vue/axios-0.18.0.js"></script>
+    <script src="../plugins/elementui/index.js"></script>
+    <link rel="stylesheet" href="../css/page-health-recordDetail.css" />
+</head>
+
+<body data-spy="scroll" data-target="#myNavbar" data-offset="150">
+    <div class="app" id="app">
+        <!-- 页面头部 -->
+        <div class="top-header">
+            <span class="f-left"><i class="icon-back" onclick="history.go(-1)"></i>返回</span>
+            <span class="center">健康每一天</span>
+            <span class="f-right"><i class="icon-more"></i></span>
+        </div>
+        <!-- 页面内容 -->
+        <div class="contentBox">
+            <div class="form-info">
+                <div class="info-title">
+                    <span class="name">完善信息</span>
+                </div>
+                <form class="info-form">
+                    <div class="input-row">
+                        <label>姓名</label>
+                        <input v-model="memberInfo.name" type="text" class="input-clear" placeholder="请输入姓名">
+                    </div>
+                    <div class="input-row single-radio">
+                        <label class="radio-title">性别</label>
+                        <div class="radio-list">
+                            <div class="radio">
+                                <input v-model="memberInfo.sex" id="item1" type="radio" name="sex" value="1" checked>
+                                <label for="item1"></label>
+                                <span>男</span>
+                            </div>
+                            <div class="radio">
+                                <input v-model="memberInfo.sex" id="item2" type="radio" name="sex" value="2">
+                                <label for="item2"></label>
+                                <span>女</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <label>邮箱</label>
+                        <input v-model="memberInfo.email" type="text" class="input-clear" placeholder="请输入邮箱">
+                    </div>
+                    <div class="input-row">
+                        <label>身份证号</label>
+                        <input v-model="memberInfo.idCard" type="text" class="input-clear" placeholder="请输入身份证号">
+                    </div>
+                    <div class="input-row">
+                        <label>出生日期</label>
+                        <input v-model="memberInfo.birthday" type="text" class="input-clear" placeholder="请输入出生日期">
+                    </div>
+                </form>
+                <div class="box-button">
+                    <button @click="submitMemberInfo()" type="button" class="btn order-btn">完善信息</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页面 css js -->
+    <!-- <script src="health-index.js"></script> -->
+    <script>
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                memberInfo: {
+                    sex: '1'
+                }//预约信息
+            },
+            methods: {
+                //提交预约
+                submitMemberInfo(){
+                    //对用户输入的身份证号进行校验
+                    var idCard = this.memberInfo.idCard;
+                    if (!checkIdCard(idCard)) {
+                        //身份证号输入不合法
+                        this.$message.error("身份证号码输入错误，请重新输入");
+                        return false;
+                    }
+                    //发送ajax请求，提交表单数据到后台进行业务处理
+                    axios.post("/member/edit.do", this.memberInfo).then((res) => {
+                        if (res.data.flag) {
+                            //更新成功，跳转到页面
+                            window.location.href = "health-recordDetail1.html";
+                        } else {
+                            this.$message.error(res.data.message);
+                        }
+                    });
+                }
+            },
+            mounted() {
+                //发送ajax请求，根据ID查询会员信息，用于页面展示
+                axios.post("/member/findByTelephone.do").then((res) => {
+                    if (res.data.flag) {
+                        if(res.data.data.birthday == null) {
+                            return null
+                        }else {
+                            let dt = new Date(res.data.data.birthday)
+                            res.data.data.birthday=dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate();
+                        }
+                        this.memberInfo = res.data.data;
+                    }else {
+                        this.$message.error(res.data.message);
+                        window.location.href = "login.html";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

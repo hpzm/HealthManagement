@@ -96,4 +96,23 @@
         order by setmeal_count desc limit 0,4
     </select>
 
+    <select id="findCheckRecord" parameterType="string" resultType="map">
+        SELECT m.name 'name',m.sex 'sex',s.name 'setmealName',o.orderDate 'orderDate',o.remark 'remark'
+        FROM t_member m,
+             t_setmeal s,
+             t_order o
+        WHERE o.setmeal_id = s.id
+          AND o.member_id = m.id
+          AND m.phoneNumber = #{value}
+    </select>
+    <!--结果未出-->
+    <update id="updateRemark1" parameterType="int">
+        UPDATE t_order SET remark='结果未出' WHERE id=#{value}
+    </update>
+
+    <!--结果已出-->
+    <update id="updateRemark2" parameterType="int">
+        UPDATE t_order SET remark='结果已出' WHERE id=#{value}
+    </update>
+
 </mapper>

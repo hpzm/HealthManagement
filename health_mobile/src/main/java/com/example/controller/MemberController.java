@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.constant.MessageConstant;
 import com.example.constant.RedisMessageConstant;
 import com.example.entity.Result;
+import com.example.pojo.CheckGroup;
 import com.example.pojo.Member;
 import com.example.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisPool;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.Map;
@@ -64,4 +66,53 @@ public class MemberController {
             return new Result(false, MessageConstant.VALIDATECODE_ERROR);
         }
     }
+
+    //根据ID查询检查组
+    @RequestMapping("/findByTelephone")
+    public Result findByTelephone(HttpServletRequest request) {
+        String telephone = null;
+        try {
+            Cookie[] cookies = request.getCookies();
+            for(Cookie c :cookies ){
+               if(c.getName().equals("login_member_telephone")){
+                   telephone=c.getValue();
+               }
+            }
+            Member member = memberService.findByTelephone(telephone);
+            if(member==null){
+                return new Result(false, "请登陆后查看个人信息哦");//查询失败
+            }
+            return new Result(true, "会员信息查询成功", member);//查询成功
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, "会员信息查询失败");//查询失败
+        }
+    }
+
+    //编辑检查组
+    @RequestMapping("/edit")
+    public Result edit(@RequestBody Member member) {
+        try {
+            memberService.edit(member);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, MessageConstant.EDIT_MEMBER_FAIL);
+        }
+        return new Result(true, MessageConstant.EDIT_MEMBER_SUCCESS);
+    }
+
+    //编辑检查组
+    @RequestMapping("/logout")
+    public Result logout(HttpServletResponse response) {
+        try {
+            Cookie cookie = new Cookie("login_member_telephone", null);
+            cookie.setMaxAge(0);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new Result(true, "退出成功");
+    }
+
 }

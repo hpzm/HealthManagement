@@ -2,15 +2,19 @@ package com.example.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.example.dao.MemberDao;
+import com.example.entity.PageResult;
+import com.example.entity.QueryPageBean;
+import com.example.pojo.CheckGroup;
 import com.example.pojo.Member;
 import com.example.service.MemberService;
 import com.example.utils.MD5Utils;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,6 +23,7 @@ import java.util.List;
 @Service(interfaceClass = MemberService.class)
 @Transactional
 public class MemberServiceImpl implements MemberService {
+
     @Autowired
     private MemberDao memberDao;
 
@@ -55,4 +60,26 @@ public class MemberServiceImpl implements MemberService {
         }
         return memberCount;
     }
+
+    public PageResult pageQuery(QueryPageBean queryPageBean) {
+        Integer currentPage = queryPageBean.getCurrentPage();
+        Integer pageSize = queryPageBean.getPageSize();
+        String queryString = queryPageBean.getQueryString();
+        PageHelper.startPage(currentPage, pageSize);
+        Page<Member> page = memberDao.selectByCondition(queryString);
+        long total = page.getTotal();
+        List<Member> rows = page.getResult();
+        return new PageResult(total, rows);
+    }
+
+    //根据ID查询
+    public Member findById(String telephone) {
+        return memberDao.findByTelephone(telephone);
+    }
+
+    //编辑信息
+    public void edit(Member member) {
+        memberDao.edit(member);
+    }
+
 }

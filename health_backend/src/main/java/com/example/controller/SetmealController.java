@@ -33,7 +33,7 @@ public class SetmealController {
     //文件上传
     @RequestMapping("/upload")
     public Result upload(@RequestParam("imgFile") MultipartFile imgFile) {
-        System.out.println(imgFile);
+        //System.out.println(imgFile);
         String originalFilename = imgFile.getOriginalFilename();//原始文件名 3bd90d2c-4e82-42a1-a401-882c88b06a1a2.jpg
         int index = originalFilename.lastIndexOf(".");
         String extention = originalFilename.substring(index - 1);//.jpg

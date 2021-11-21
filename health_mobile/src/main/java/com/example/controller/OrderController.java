@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisPool;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -68,6 +71,30 @@ public class OrderController {
     public Result findById(Integer id) {
         try {
             Map map = orderService.findById(id);
+            return new Result(true, MessageConstant.QUERY_ORDER_SUCCESS, map);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, MessageConstant.QUERY_ORDER_FAIL);
+        }
+    }
+
+    @RequestMapping("/findCheckRecord")
+    public Result findCheckRecord(HttpServletRequest request) {
+        try {
+            String telephone = null;
+            Cookie[] cookies = request.getCookies();
+            for (Cookie c : cookies) {
+                if (c.getName().equals("login_member_telephone")) {
+                    telephone = c.getValue();
+                }
+            }
+            if(telephone==null){
+                return new Result(false, "请登陆后查看");
+            }
+            List<Map> map = orderService.findCheckRecord(telephone);
+            if(map==null){
+                return new Result(false, "请预约后查看");
+            }
             return new Result(true, MessageConstant.QUERY_ORDER_SUCCESS, map);
         } catch (Exception e) {
             e.printStackTrace();
