@@ -4,5 +4,5 @@ import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
 
 public interface ExamResultService {
-    public PageResult pageQuery(QueryPageBean queryPageBean);
+    public PageResult findPage(QueryPageBean queryPageBean);
 }

@@ -33,6 +33,11 @@
         where id = #{id}
     </delete>
 
+    <delete id="deleteOrderMemberIdById" parameterType="int">
+        DELETE
+        FROM t_order
+        WHERE member_id = #{value}
+    </delete>
     <!--根据id查询会员-->
     <select id="findById" parameterType="int" resultType="com.example.pojo.Member">
         select *

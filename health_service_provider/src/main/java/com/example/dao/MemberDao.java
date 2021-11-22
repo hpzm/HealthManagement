@@ -11,6 +11,7 @@ public interface MemberDao {
     public Page<Member> selectByCondition(String queryString);
     public void add(Member member);
     public void deleteById(Integer id);
+    public void deleteOrderMemberIdById(Integer id);
     public Member findById(Integer id);
     public Member findByTelephone(String telephone);
     public void edit(Member member);

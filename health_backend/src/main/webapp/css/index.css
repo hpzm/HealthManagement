@@ -1,0 +1,170 @@
+.app-container.index {
+    background: transparent
+}
+ul,li {
+    list-style: none
+}
+ul,p {
+    margin: 0;
+}
+h1,h2,h3,h4,h5 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+/* detail style */
+.card-info {
+    padding: 30px 4em;
+    border-top:2px solid #0abdfe;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-info .info-item {
+    text-align: center
+}
+.card-info span {
+    font-size: 35px;
+    font-weight: bold;
+    color: #0189dd;
+    border: 1px dashed #6fc8ff;
+    display: block;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 100px;
+    border-radius: 50%;
+}
+.card-info b {
+    display: block;
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: normal;
+}
+.card-info.gather span {
+    color: #48d3d0;
+    border-color:  #48d3d0;
+}
+/* module2 */
+.chartbox {
+    margin-top: 15px;
+}
+.chart {
+    padding: 10px;
+    background: #fff;
+    border-top: 2px solid #0abdfe;
+}
+/* module3 */
+.flow {
+    margin: 20px 0;
+}
+.flow .flow-title {
+    line-height: 2;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    border-bottom: 2px solid #0abdfe;
+    /* background: #fbfbfb;
+    border-bottom: 1px solid #e8e8e8; */
+}
+.flow .flow-index {
+    padding: 20px 0 0;
+    background: #fff;
+    margin-bottom: 0;
+}
+.flow .flow-index li {
+    display: inline-block;
+    width: 12%;
+    text-align: center;
+    font-size: 18px;
+}
+.flow .flow-main {
+    padding: 20px 0;
+    background: #fff;
+}
+.flow .flow-main li {
+    display: inline-block;
+    width: 12%;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+.flow .flow-main li::after {
+    content: '';
+    display: inline-block;
+    background: url('../img/arrow.png');
+    width: 30px;
+    height: 19px;
+    position: absolute;
+    top: 25px;
+    right: -10px;
+}
+.flow .flow-main li.two::after {
+    top: 37%;
+    right: 0;
+}
+.flow .flow-main li.three::after {
+    top: 42%;
+    right: 0;
+}
+.flow .flow-main li:last-child::after{
+    content: none;
+}
+.flow .flow-main li .item-title {
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+.flow .flow-main li .item-box {
+    position: relative;
+}
+.flow .flow-main li .item-box p {
+    font-size: 18px;
+    color: #666;
+    line-height: 2;
+    margin-bottom: 0;
+}
+.flow .flow-main li .item-box .icon {
+    margin: 0 auto;
+    background: url('../img/trendicons.png');
+    width: 75px;
+    height: 50px;
+
+}
+.flow .flow-main li .item-box .icon.aa {
+    background-position: 0 0;
+}
+.flow .flow-main li .item-box .icon.bb {
+    background-position: -73px 0;
+}
+.flow .flow-main li .item-box .icon.cc {
+    background-position: 262px -3px;;
+}
+.flow .flow-main li .item-box .icon.cc2 {
+    background-position: 126px -116px;
+}
+.flow .flow-main li .item-box .icon.dd {
+    background-position: 191px 0;
+}
+.flow .flow-main li .item-box .icon.dd2 {
+    background-position:-277px 1px;
+}
+.flow .flow-main li .item-box .icon.dd3 {
+    background-position: 205px -62px;
+}
+.flow .flow-main li .item-box .icon.ee {
+    background-position:0 -52px;
+}
+.flow .flow-main li .item-box .icon.ff {
+    background-position: 0 0;
+}
+.flow .flow-main li .item-box .icon.gg {
+    background-position:-73px -56px;
+}
+.flow .flow-main li .item-box .icon.gg2 {
+    background-position:-73px -102px;
+}
+.flow .flow-main li .item-box .icon.hh {
+    background-position: -138px -70px;
+}

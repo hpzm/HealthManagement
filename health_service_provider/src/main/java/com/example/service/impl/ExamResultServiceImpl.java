@@ -4,7 +4,6 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.example.dao.ExamResultDao;
 import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
-import com.example.pojo.ExamResult;
 import com.example.service.ExamResultService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -20,17 +19,14 @@ public class ExamResultServiceImpl implements ExamResultService {
     @Autowired
     private ExamResultDao examResultDao;
 
-    //分页查询
-    public PageResult pageQuery(QueryPageBean queryPageBean) {
-        examResultDao.deleteAll();
-        examResultDao.add();
+    public PageResult findPage(QueryPageBean queryPageBean) {
         Integer currentPage = queryPageBean.getCurrentPage();
         Integer pageSize = queryPageBean.getPageSize();
         String queryString = queryPageBean.getQueryString();
         PageHelper.startPage(currentPage, pageSize);
-        Page<ExamResult> page = examResultDao.findByCondition(queryString);
+        Page page = examResultDao.findByQueryString(queryString);
         long total = page.getTotal();
-        List<ExamResult> rows = page.getResult();
+        List rows = page.getResult();
         return new PageResult(total, rows);
     }
 

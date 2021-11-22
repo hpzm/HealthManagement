@@ -18,4 +18,6 @@ public interface MemberService {
     public PageResult pageQuery(QueryPageBean queryPageBean);
 
     public void edit(Member member);
+
+    public void deleteById(Integer id);
 }

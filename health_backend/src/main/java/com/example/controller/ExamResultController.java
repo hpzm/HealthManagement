@@ -16,10 +16,10 @@ public class ExamResultController {
     private ExamResultService examResultService;
 
     //分页查询
-    @RequestMapping("/findRemarkPage")
-    public PageResult findRemarkPage(@RequestBody QueryPageBean queryPageBean) {
+    @RequestMapping("/findPage")
+    public PageResult findPage(@RequestBody QueryPageBean queryPageBean) {
 //        System.out.println(queryPageBean.getCurrentPage());
-        PageResult pageResult = examResultService.pageQuery(queryPageBean);
+        PageResult pageResult = examResultService.findPage(queryPageBean);
         return pageResult;
     }
 

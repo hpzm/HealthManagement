@@ -3,23 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.dao.OrderSettingListDao">
 
-    <delete id="deleteAll">
-        TRUNCATE TABLE t_ordersettinglist
-    </delete>
-
-    <insert id="add">
-        INSERT INTO t_ordersettinglist
-            (SELECT o.id 'id', o.orderDate 'orderDate', m.name 'name',m.phoneNumber 'phoneNumber',o.orderType 'orderType' ,o.orderStatus 'orderStatus'
-             FROM t_order o,
-                  t_member m
-             WHERE o.member_id = m.id)
-    </insert>
-
-    <!--根据条件查询-->
-    <select id="selectByCondition" parameterType="string" resultType="com.example.pojo.OrderSettingList">
-        select * from t_ordersettinglist
+    <select id="selectByCondition" parameterType="string" resultType="map">
+        SELECT o.id 'id', o.orderDate 'orderDate', m.name 'name',m.phoneNumber 'phoneNumber',o.orderType 'orderType'
+        ,o.orderStatus 'orderStatus'
+        FROM t_order o,
+        t_member m
+        WHERE o.member_id = m.id
         <if test="value != null and value.length > 0">
-            where phoneNumber = #{value} or name = #{value}
+            and phoneNumber = #{value}
         </if>
     </select>
 

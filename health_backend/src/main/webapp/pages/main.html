@@ -91,7 +91,14 @@
                     "path": "1",
                     "title": "工作台",
                     "icon": "fa-dashboard",
-                    "children": []
+                    "children": [
+                        {
+                            "path": "/1-1",
+                            "title": "工作台",
+                            "linkUrl": "workbench.html",
+                            "children": []
+                        },
+                    ]
                 },
                 {
                     "path": "2",
@@ -202,6 +209,7 @@
             });
         }
     });
+
     $(function () {
         var wd = 200;
         $(".el-main").css('width', $('body').width() - wd + 'px');

@@ -21,8 +21,6 @@ public class OrderSettingListServiceImpl implements OrderSettingListService {
 
     @Override
     public PageResult pageQuery(QueryPageBean queryPageBean) {
-        orderSettingListDao.deleteAll();
-        orderSettingListDao.add();
         Integer currentPage = queryPageBean.getCurrentPage();
         Integer pageSize = queryPageBean.getPageSize();
         String queryString = queryPageBean.getQueryString();//查询条件

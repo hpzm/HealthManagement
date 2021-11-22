@@ -73,12 +73,15 @@
                 <el-table-column prop="phoneNumber" label="手机号码" align="center"></el-table-column>
 <!--                <el-table-column prop="email" label="邮箱" align="center"></el-table-column>-->
                 <el-table-column prop="regTime" label="注册时间" align="center" :formatter="formatDate" ></el-table-column>
-<!--                <el-table-column label="操作" align="center">-->
-<!--                    <template slot-scope="scope">-->
+                <el-table-column label="操作" align="center">
+                    <template slot-scope="scope">
 <!--                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>-->
-<!--                        <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>-->
+                        <el-button size="mini" type="danger" @click="handleDelete(scope.row)">注销</el-button>
 <!--                    </template>-->
 <!--                </el-table-column>-->
+<!--            </el-table>-->
+                    </template>
+                </el-table-column>
             </el-table>
             <div class="pagination-container">
                 <el-pagination
@@ -140,7 +143,32 @@
             handleCurrentChange(currentPage) {
                 this.pagination.currentPage = currentPage;
                 this.findPage();
-            }
+            },
+            //注销
+            handleDelete(row) {
+                //弹出确认框
+                this.$confirm('你确定要注销当前会员吗？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    //发送ajax请求，将id提交到Controller
+                    axios.get("/member/delete.do?id=" + row.id).then((res) => {
+                        if (res.data.flag) {
+                            this.$message({
+                                type: 'success',
+                                message: res.data.message
+                            });
+                            this.findPage();
+                        } else {
+                            //执行失败
+                            this.$message.error(res.data.message);
+                        }
+                    })
+                }).catch(() => {
+                    this.$message("已取消");
+                });
+            },
         }
     })
 </script>

@@ -82,4 +82,10 @@ public class MemberServiceImpl implements MemberService {
         memberDao.edit(member);
     }
 
+    //注销
+    public void deleteById(Integer id) {
+        memberDao.deleteOrderMemberIdById(id);
+        memberDao.deleteById(id);
+    }
+
 }

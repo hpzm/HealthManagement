@@ -37,4 +37,16 @@ public class MemberController {
         return memberService.pageQuery(queryPageBean);
     }
 
+    //注销
+    @RequestMapping("/delete")
+    public Result delete(Integer id) {
+        try {
+            memberService.deleteById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //服务调用失败
+            return new Result(false, MessageConstant.DELETE_MEMBER_FAIL);
+        }
+        return new Result(true, MessageConstant.DELETE_MEMBER_SUCCESS);
+    }
 }

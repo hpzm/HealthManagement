@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>健康每一天</title>
+    <meta name="description" content="健康每一天">
+    <meta name="keywords" content="健康每一天">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../css/index-unpkg.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <style type="text/css">
+    </style>
+</head>
+
+<body class="hold-transition">
+<div id="app">
+    <div class="app-container index">
+        <!-- module1 -->
+        <el-row :gutter="20">
+            <el-col :span="12">
+                <h4 class="card-title">今日信息</h4>
+                <ul class="card-info">
+                    <li class="info-item" v-for="(o, index) in items.currentday" :key="index">
+                        <span>{{o.number}}</span>
+                        <b>{{o.title}}</b>
+                    </li>
+                </ul>
+            </el-col>
+            <el-col :span="12">
+                <h4 class="card-title">汇总</h4>
+                <ul class="card-info gather">
+                    <li class="info-item" v-for="(o, index) in items.gather" :key="index">
+                        <span>{{o.number}}</span>
+                        <b>{{o.title}}</b>
+                    </li>
+                </ul>
+            </el-col>
+        </el-row>
+        <!-- module2 -->
+        <el-row :gutter="20" class="chartbox">
+            <el-col :span="12">
+                <h4>会员统计</h4>
+                <div class="chart">
+                    <div id="linechart" style="width: 100%;height:345px;"></div>
+                </div>
+            </el-col>
+            <el-col :span="12">
+                <h4>工作量统计</h4>
+                <div class="chart">
+                    <div id="barchart" style="width: 100%;height:345px;"></div>
+                </div>
+            </el-col>
+        </el-row>
+        <!-- module3 -->
+<!--        <div class="flow">-->
+<!--            <h4 class="flow-title">健康系统流程图</h4>-->
+<!--            <ul class="flow-index">-->
+<!--                <li>新建档案</li>-->
+<!--                <li>会员管理</li>-->
+<!--                <li>体验数据</li>-->
+<!--                <li>健康评估</li>-->
+<!--                <li>人群分类</li>-->
+<!--                <li>健康干预</li>-->
+<!--                <li>干预追踪</li>-->
+<!--                <li>效果评估</li>-->
+<!--            </ul>-->
+<!--            <ul class="flow-main">-->
+<!--                <li class="flow-item">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon aa"></div>-->
+<!--                        <p>新建档案</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon bb"></div>-->
+<!--                        <p>会员预约</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item two">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon cc"></div>-->
+<!--                        <p>导入体验数据</p>-->
+<!--                    </div>-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon cc2"></div>-->
+<!--                        <p>采集体验数据</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item three">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon dd"></div>-->
+<!--                        <p>健康评估问卷</p>-->
+<!--                    </div>-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon dd2"></div>-->
+<!--                        <p>中医体质辨别</p>-->
+<!--                    </div>-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon dd3"></div>-->
+<!--                        <p>心理评测</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon ee"></div>-->
+<!--                        <p>人群分类</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon ff"></div>-->
+<!--                        <p>干预方案制定</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item two">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon gg"></div>-->
+<!--                        <p>随访日记</p>-->
+<!--                    </div>-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon gg2"></div>-->
+<!--                        <p>微信提醒</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="flow-item">-->
+<!--                    <div class="item-box">-->
+<!--                        <div class="icon hh"></div>-->
+<!--                        <p>干预效果评估</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+</div>
+</body>
+<!-- 引入组件库 -->
+<script src="../js/vue-unpkg.js"></script>
+<script src="../js/index.js"></script>
+<script src="../plugins/jquery/dist/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/indexgather.json"></script>
+<script src="../js/linedata.json"></script>
+<script src="../js/bardata.json"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                items: json,
+                linechart: linejson,
+                barchart: barjson
+            }
+        },
+        mounted() {
+            this.handlelineChart()
+            this.handlebarChart()
+        },
+        methods: {
+            handlelineChart() {
+                var linechart = echarts.init(document.getElementById('linechart'))
+                var option = {
+                    legend: {
+                        bottom: '0'
+                    },
+                    grid: {
+                        top: 25,
+                        left: 50,
+                        right: 50
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        // showContent: false,
+                        axisPointer: {
+                            type: 'line',
+                            lineStyle: {
+                                width: 2,
+                                color: '#c0cadb'
+                            }
+                        }
+                    },
+                    dataset: linejson,
+                    xAxis: {
+                        type: 'category',
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            color: '#a9b0b9',
+                            fontSize: 14
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#eef3f8'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        gridIndex: 0,
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            color: '#a9b0b9',
+                            fontSize: 14
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#eef3f8'
+                            }
+                        },
+                        splitLine: {
+                            show: true,
+                            lineStyle: {
+                                color: ['#eef3f8'],
+                                width: 1,
+                                type: 'solid'
+                            }
+                        }
+                    },
+
+                    series: [
+                        {
+                            type: 'line',
+                            smooth: true,
+                            // symbolSize: 1,
+                            // symbol:'star',//拐点样式
+                            seriesLayoutBy: 'row',
+                            lineStyle: {
+                                color: '#ff8a8a',
+                                width: 3
+                            }
+                        },
+                        {
+                            type: 'line',
+                            smooth: true,
+                            seriesLayoutBy: 'row',
+                            lineStyle: {
+                                color: '#0ebffc',
+                                width: 3
+                            }
+                        }
+                    ]
+                }
+                linechart.setOption(option)
+            },
+            handlebarChart() {
+                var barchart = echarts.init(document.getElementById('barchart'))
+                var option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['预约数', '到诊数'],
+                        y: 'bottom'//图例说明文字设置
+                    },
+                    grid: {
+                        top: 25,
+                        left: 50,
+                        right: 50
+                    },
+                    toolbox: {
+                        show: true,
+                        orient: 'vertical',
+                        x: 'right',
+                        y: 'center',
+                        feature: {
+                            mark: {show: true},
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
+                        }
+                    },
+                    calculable: true,
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisLabel: {
+                                color: '#a9b0b9',
+                                fontSize: 16
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#eef3f8'
+                                }
+                            },
+                            data: barjson.users
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisTick: {
+                                show: false
+                            },
+                            axisLabel: {
+                                color: '#a9b0b9',
+                                fontSize: 16
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#eef3f8'
+                                }
+                            },
+                            splitLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: ['#eef3f8'],
+                                    width: 1,
+                                    type: 'solid'
+                                }
+                            }
+                        }
+                    ],
+
+                    series: [
+                        {
+                            name: '预约数',
+                            type: 'bar',
+                            barWidth: 15,//柱图宽度
+                            barGap: '30%',/*多个并排柱子设置柱子之间的间距*/
+                            data: barjson.source[0],
+
+                            itemStyle: {
+                                normal: {
+                                    color: '#ff8a8a',
+                                    barBorderRadius: [10, 10, 0, 0]
+                                },
+                            }
+                        },
+                        {
+                            name: '到诊数',
+                            type: 'bar',
+                            barWidth: 12,//柱图宽度
+                            barGap: '35%',/*多个并排柱子设置柱子之间的间距*/
+                            data: barjson.source[1],
+                            itemStyle: {
+                                normal: {
+                                    color: '#0fc0fc',
+                                    barBorderRadius: [10, 10, 0, 0]
+                                },
+                            }
+                        }
+
+                    ]
+                };
+                barchart.setOption(option)
+            }
+        }
+    })
+</script>
+
+</html>

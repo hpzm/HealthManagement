@@ -1,0 +1,38 @@
+var json={
+  "currentday": [
+    {
+      "title": "今日预约人数",
+      "number": 65,
+    },
+    {
+      "title": "今日评估人数",
+      "number": 8
+    },
+    {
+      "title": "今日未执行",
+      "number": 12
+    },
+    {
+      "title": "今日已执行",
+      "number": 20
+    }
+  ],
+  "gather": [
+    {
+      "title": "今日预约人数",
+      "number": 15,
+    },
+    {
+      "title": "今日评估人数",
+      "number": 20
+    },
+    {
+      "title": "今日未执行",
+      "number":40
+    },
+    {
+      "title": "今日已执行",
+      "number": 50
+    }
+  ]
+}

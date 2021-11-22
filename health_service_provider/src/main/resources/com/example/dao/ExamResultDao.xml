@@ -3,22 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.dao.ExamResultDao">
 
-    <delete id="deleteAll">
-        TRUNCATE TABLE t_examridesult
-    </delete>
-
-    <insert id="add">
-        INSERT INTO t_examridesult
-            (SELECT o.id 'id', o.orderDate 'orderDate',m.name 'name',m.phoneNumber 'phoneNumber',s.name 'setmealName',o.remark 'remark'
-             FROM t_member m,t_setmeal s,t_order o
-             WHERE o.setmeal_id=s.id AND o.member_id=m.id)
-    </insert>
-
-    <!--根据条件查询-->
-    <select id="findByCondition" parameterType="string" resultType="com.example.pojo.ExamResult">
-        select * from t_examridesult
+    <select id="findByQueryString" parameterType="string" resultType="map">
+        SELECT o.id 'id', o.orderDate 'orderDate',m.name 'name',m.phoneNumber 'phoneNumber',s.name
+        'setmealName',o.remark 'remark'
+        FROM t_member m,t_setmeal s,t_order o
+        WHERE o.setmeal_id=s.id AND o.member_id=m.id
         <if test="value != null and value.length > 0">
-            where phoneNumber = #{value} or name = #{value}
+            and phoneNumber = #{value}
         </if>
     </select>
 
