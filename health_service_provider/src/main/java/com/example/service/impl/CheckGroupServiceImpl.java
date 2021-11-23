@@ -5,7 +5,6 @@ import com.example.dao.CheckGroupDao;
 import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
 import com.example.pojo.CheckGroup;
-import com.example.pojo.CheckItem;
 import com.example.service.CheckGroupService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -73,7 +72,6 @@ public class CheckGroupServiceImpl implements CheckGroupService {
         return checkGroupDao.findAll();
     }
 
-    @Override
     public void deleteById(Integer id) {
         checkGroupDao.deleteByIdCheckGroupAndCheckItem(id);
         checkGroupDao.deleteById(id);

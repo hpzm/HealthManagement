@@ -4,7 +4,6 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.example.dao.MemberDao;
 import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
-import com.example.pojo.CheckGroup;
 import com.example.pojo.Member;
 import com.example.service.MemberService;
 import com.example.utils.MD5Utils;

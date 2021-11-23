@@ -42,7 +42,7 @@ public class CheckGroupController {
         return checkGroupService.pageQuery(queryPageBean);
     }
 
-    //根据ID查询检查组
+    //根据ID查询
     @RequestMapping("/findById")
     public Result findById(Integer id) {
         try {

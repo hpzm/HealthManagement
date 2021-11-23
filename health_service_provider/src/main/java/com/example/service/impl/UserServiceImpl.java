@@ -4,13 +4,21 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.example.dao.PermissionDao;
 import com.example.dao.RoleDao;
 import com.example.dao.UserDao;
+import com.example.entity.PageResult;
+import com.example.entity.QueryPageBean;
 import com.example.pojo.Permission;
 import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.UserService;
+import com.example.utils.MD5Utils;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -46,5 +54,64 @@ public class UserServiceImpl implements UserService {
         }
         user.setRoles(roles);//让用户关联角色
         return user;
+    }
+
+    //新增User，同时需要让关联role
+    public void add(User user, Integer[] roleIds) {
+        userDao.add(user);
+        //设置检查组和检查项的多对多的关联关系，操作t_checkgroup_checkitem表
+        Integer userId = user.getId();
+        this.setUserAndRole(userId, roleIds);
+    }
+
+    private void setUserAndRole(Integer userId, Integer[] roleIds) {
+        if (roleIds != null && roleIds.length > 0) {
+            for (Integer roleId : roleIds) {
+                Map<String, Integer> map = new HashMap();
+                map.put("userId", userId);
+                map.put("roleId", roleId);
+                userDao.setUserAndRole(map);
+            }
+        }
+    }
+
+
+    //分页查询
+    public PageResult pageQuery(QueryPageBean queryPageBean) {
+        Integer currentPage = queryPageBean.getCurrentPage();
+        Integer pageSize = queryPageBean.getPageSize();
+        String queryString = queryPageBean.getQueryString();
+        PageHelper.startPage(currentPage, pageSize);
+        Page<User> page = userDao.findByCondition(queryString);
+        long total = page.getTotal();
+        List<User> rows = page.getResult();
+        return new PageResult(total, rows);
+    }
+
+    //根据ID查询
+    public User findById(Integer id) {
+        return userDao.findById(id);
+    }
+
+
+    //根据ID查询关联的roleIds
+    public List<Integer> findroleIdsByCheckUserId(Integer id) {
+        return userDao.findroleIdsByCheckUserId(id);
+    }
+
+    //编辑信息，同时需要关联
+    public void edit(User user, Integer[] roleIds) {
+        //修改检查组基本信息，操作检查组t_checkgroup表
+        userDao.edit(user);
+        //清理当前检查组关联的检查项，操作中间关系表t_checkgroup_checkitem表
+        userDao.deleteAssocication(user.getId());
+        //重新建立当前检查组和检查项的关联关系
+        Integer userId = user.getId();
+        this.setUserAndRole(userId, roleIds);
+    }
+
+    public void deleteById(Integer id) {
+        userDao.deleteAssocication(id);
+        userDao.deleteById(id);
     }
 }

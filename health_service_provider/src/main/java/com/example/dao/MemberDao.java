@@ -1,6 +1,5 @@
 package com.example.dao;
 
-import com.example.pojo.CheckGroup;
 import com.github.pagehelper.Page;
 import com.example.pojo.Member;
 

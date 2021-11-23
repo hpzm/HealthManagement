@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.example.constant.MessageConstant;
 import com.example.constant.RedisMessageConstant;
 import com.example.entity.Result;
-import com.example.pojo.CheckGroup;
 import com.example.pojo.Member;
 import com.example.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;

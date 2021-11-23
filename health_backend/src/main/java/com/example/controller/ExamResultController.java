@@ -18,7 +18,6 @@ public class ExamResultController {
     //分页查询
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean) {
-//        System.out.println(queryPageBean.getCurrentPage());
         PageResult pageResult = examResultService.findPage(queryPageBean);
         return pageResult;
     }

@@ -12,4 +12,57 @@
           and rp.role_id = #{role_id}
     </select>
 
+    <select id="findAll" resultType="com.example.pojo.Permission">
+        select *
+        from t_permission
+    </select>
+
+    <!--新增-->
+    <insert id="add" parameterType="com.example.pojo.Permission">
+        insert into t_permission(name, keyword, description)
+        values (#{name}, #{keyword}, #{description})
+    </insert>
+
+    <select id="selectByCondition" parameterType="String" resultType="com.example.pojo.Permission">
+        select * from t_permission
+        <if test="value != null and value.length > 0">
+            where name = #{value}
+        </if>
+    </select>
+
+    <!--根据检查项ID统计数据量-->
+    <select id="findCountByRole" parameterType="int" resultType="long">
+        select count(*)
+        from t_role_permission
+        where permission_id = #{value}
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+        delete
+        from t_permission
+        where id = #{id}
+    </delete>
+
+    <update id="edit" parameterType="com.example.pojo.Permission">
+        update t_permission
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="keyword != null">
+                keyword = #{keyword},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="findById" parameterType="int" resultType="com.example.pojo.Permission">
+        select *
+        from t_permission
+        where id = #{id}
+    </select>
+
 </mapper>
