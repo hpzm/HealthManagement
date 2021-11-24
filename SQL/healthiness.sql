@@ -33,7 +33,7 @@ CREATE TABLE `t_checkgroup` (
 
 /*Data for the table `t_checkgroup` */
 
-insert  into `t_checkgroup`(`id`,`code`,`name`,`helpCode`,`sex`,`remark`,`attention`) values (5,'0001','一般检查','YBJC','0','一般检查','无'),(6,'0002','视力色觉','SLSJ','0','视力色觉',NULL),(7,'0003','血常规','XCG','0','血常规',NULL),(8,'0004','尿常规','NCG','0','尿常规',NULL),(9,'0005','肝功三项','GGSX','0','肝功三项',NULL),(10,'0006','肾功三项','NGSX','0','肾功三项',NULL),(11,'0007','血脂四项','XZSX','0','血脂四项',NULL),(12,'0008','心肌酶三项','XJMSX','0','心肌酶三项',NULL),(13,'0009','甲功三项','JGSX','0','甲功三项',NULL),(14,'0010','子宫附件彩超','ZGFJCC','2','子宫附件彩超',NULL),(15,'0011','胆红素三项','DHSSX','0','胆红素三项',NULL);
+insert  into `t_checkgroup`(`id`,`code`,`name`,`helpCode`,`sex`,`remark`,`attention`) values (5,'0001','一般检查','YBJC','0','一般检查','无'),(6,'0002','视力色觉','SLSJ','0','视力色觉','无'),(7,'0003','血常规','XCG','0','血常规','无'),(8,'0004','尿常规','NCG','0','尿常规','无'),(9,'0005','肝功三项','GGSX','0','肝功三项','无'),(10,'0006','肾功三项','NGSX','0','肾功三项','无'),(11,'0007','血脂四项','XZSX','0','血脂四项','无'),(12,'0008','心肌酶三项','XJMSX','0','心肌酶三项','无'),(13,'0009','甲功三项','JGSX','0','甲功三项','无'),(14,'0010','子宫附件彩超','ZGFJCC','2','子宫附件彩超','无'),(15,'0011','胆红素三项','DHSSX','0','胆红素三项','无');
 
 /*Table structure for table `t_checkgroup_checkitem` */
 
@@ -94,7 +94,7 @@ CREATE TABLE `t_member` (
 
 /*Data for the table `t_member` */
 
-insert  into `t_member`(`id`,`fileNumber`,`name`,`sex`,`idCard`,`phoneNumber`,`regTime`,`password`,`email`,`birthday`,`remark`) values (6,NULL,NULL,NULL,NULL,NULL,'2020-10-05',NULL,NULL,NULL,NULL),(7,NULL,NULL,NULL,NULL,NULL,'2020-11-06',NULL,NULL,NULL,NULL),(8,NULL,NULL,NULL,NULL,NULL,'2020-11-17',NULL,NULL,NULL,NULL),(9,NULL,NULL,NULL,NULL,NULL,'2020-11-18',NULL,NULL,NULL,NULL),(10,NULL,NULL,NULL,NULL,NULL,'2020-11-19',NULL,NULL,NULL,NULL),(11,NULL,NULL,NULL,NULL,NULL,'2020-11-20',NULL,NULL,NULL,NULL),(12,NULL,NULL,NULL,NULL,NULL,'2020-11-21',NULL,NULL,NULL,NULL),(13,NULL,NULL,NULL,NULL,NULL,'2020-12-06',NULL,NULL,NULL,NULL),(14,NULL,NULL,NULL,NULL,NULL,'2020-12-17',NULL,NULL,NULL,NULL),(15,NULL,NULL,NULL,NULL,NULL,'2020-12-18',NULL,NULL,NULL,NULL),(16,NULL,NULL,NULL,NULL,NULL,'2020-12-19',NULL,NULL,NULL,NULL),(17,NULL,NULL,NULL,NULL,NULL,'2020-12-20',NULL,NULL,NULL,NULL),(18,NULL,NULL,NULL,NULL,NULL,'2020-12-21',NULL,NULL,NULL,NULL),(19,NULL,NULL,NULL,NULL,NULL,'2020-12-01',NULL,NULL,NULL,NULL),(82,NULL,'小明','1','123456789000999999','18811679442','2020-09-08',NULL,NULL,NULL,NULL),(83,NULL,'王美丽','1','132333333333333','13412345678','2020-09-11',NULL,NULL,NULL,NULL),(92,NULL,'王鹏','1','411381199901303010','18337723923','2021-11-13',NULL,'1277@qq.com','1999-01-30','结果已出'),(93,NULL,NULL,NULL,NULL,NULL,'2021-01-06',NULL,NULL,NULL,NULL),(94,NULL,NULL,NULL,NULL,NULL,'2021-01-17',NULL,NULL,NULL,NULL),(95,NULL,NULL,NULL,NULL,NULL,'2021-01-18',NULL,NULL,NULL,NULL),(96,NULL,NULL,NULL,NULL,NULL,'2021-01-19',NULL,NULL,NULL,NULL),(97,NULL,NULL,NULL,NULL,NULL,'2021-01-20',NULL,NULL,NULL,NULL),(98,NULL,NULL,NULL,NULL,NULL,'2021-01-21',NULL,NULL,NULL,NULL),(99,NULL,NULL,NULL,NULL,NULL,'2021-01-01',NULL,NULL,NULL,NULL),(100,NULL,NULL,NULL,NULL,NULL,'2021-01-03',NULL,NULL,NULL,NULL),(101,NULL,NULL,NULL,NULL,NULL,'2021-01-04',NULL,NULL,NULL,NULL),(102,NULL,NULL,NULL,NULL,NULL,'2021-01-05',NULL,NULL,NULL,NULL),(103,NULL,NULL,NULL,NULL,NULL,'2021-02-06',NULL,NULL,NULL,NULL),(104,NULL,NULL,NULL,NULL,NULL,'2021-02-17',NULL,NULL,NULL,NULL),(105,NULL,NULL,NULL,NULL,NULL,'2021-02-18',NULL,NULL,NULL,NULL),(106,NULL,NULL,NULL,NULL,NULL,'2021-02-19',NULL,NULL,NULL,NULL),(107,NULL,NULL,NULL,NULL,NULL,'2021-02-20',NULL,NULL,NULL,NULL),(108,NULL,NULL,NULL,NULL,NULL,'2021-02-21',NULL,NULL,NULL,NULL),(109,NULL,NULL,NULL,NULL,NULL,'2021-03-06',NULL,NULL,NULL,NULL),(110,NULL,NULL,NULL,NULL,NULL,'2021-03-17',NULL,NULL,NULL,NULL),(111,NULL,NULL,NULL,NULL,NULL,'2021-03-18',NULL,NULL,NULL,NULL),(112,NULL,NULL,NULL,NULL,NULL,'2021-03-19',NULL,NULL,NULL,NULL),(113,NULL,NULL,NULL,NULL,NULL,'2021-03-20',NULL,NULL,NULL,NULL),(114,NULL,NULL,NULL,NULL,NULL,'2021-03-21',NULL,NULL,NULL,NULL),(115,NULL,NULL,NULL,NULL,NULL,'2021-03-01',NULL,NULL,NULL,NULL),(116,NULL,NULL,NULL,NULL,NULL,'2021-04-06',NULL,NULL,NULL,NULL),(117,NULL,NULL,NULL,NULL,NULL,'2021-04-17',NULL,NULL,NULL,NULL),(118,NULL,NULL,NULL,NULL,NULL,'2021-04-18',NULL,NULL,NULL,NULL),(119,NULL,NULL,NULL,NULL,NULL,'2021-05-06',NULL,NULL,NULL,NULL),(120,NULL,NULL,NULL,NULL,NULL,'2021-05-17',NULL,NULL,NULL,NULL),(121,NULL,NULL,NULL,NULL,NULL,'2021-06-06',NULL,NULL,NULL,NULL),(122,NULL,NULL,NULL,NULL,NULL,'2021-06-17',NULL,NULL,NULL,NULL),(123,NULL,NULL,NULL,NULL,NULL,'2021-07-06',NULL,NULL,NULL,NULL),(124,NULL,NULL,NULL,NULL,NULL,'2021-07-17',NULL,NULL,NULL,NULL);
+insert  into `t_member`(`id`,`fileNumber`,`name`,`sex`,`idCard`,`phoneNumber`,`regTime`,`password`,`email`,`birthday`,`remark`) values (6,NULL,'李梅','2','123456789000999999','18811679442','2020-10-05',NULL,'1277@qq.com','1999-11-30','结果已出'),(7,NULL,'张浩','1','123456789000999999','18811679442','2020-11-06',NULL,'1277@qq.com','1999-11-30','结果已出'),(8,NULL,'周丽','2','123456789000999999','18811679442','2020-11-17',NULL,'1277@qq.com','1999-11-30','结果已出'),(9,NULL,'王平','2','123456789000999999','18811679442','2020-11-18',NULL,'1277@qq.com','1999-11-30','结果已出'),(10,NULL,'丁梅','2','123456789000999999','18811679442','2020-11-19',NULL,'1277@qq.com','1999-11-30','结果已出'),(11,NULL,'赵丽','2','123456789000999999','18811679442','2020-11-20',NULL,'1277@qq.com','1999-11-30','结果已出'),(12,NULL,'王梓','1','123456789000999999','18811679442','2020-11-21',NULL,'1277@qq.com','1999-11-30','结果已出'),(13,NULL,'李红','2','123456789000999999','18811679442','2020-12-06',NULL,'1277@qq.com','1999-11-30','结果已出'),(14,NULL,'周记','1','123456789000999999','18811679442','2020-12-17',NULL,'1277@qq.com','1999-11-30','结果已出'),(15,NULL,'魏林','2','123456789000999999','18811679442','2020-12-18',NULL,'1277@qq.com','1999-11-30','结果已出'),(16,NULL,NULL,NULL,NULL,NULL,'2020-12-19',NULL,NULL,NULL,NULL),(17,NULL,NULL,NULL,NULL,NULL,'2020-12-20',NULL,NULL,NULL,NULL),(18,NULL,NULL,NULL,NULL,NULL,'2020-12-21',NULL,NULL,NULL,NULL),(19,NULL,NULL,NULL,NULL,NULL,'2020-12-01',NULL,NULL,NULL,NULL),(82,NULL,'小明','1','123456789000999999','18811679442','2020-09-08',NULL,NULL,NULL,NULL),(83,NULL,'王美丽','1','132333333333333','13412345678','2020-09-11',NULL,NULL,NULL,NULL),(92,NULL,'王鹏','1','411381199901303010','18337723923','2021-11-13',NULL,'1277@qq.com','1999-01-30','结果已出'),(93,NULL,NULL,NULL,NULL,NULL,'2021-01-06',NULL,NULL,NULL,NULL),(94,NULL,NULL,NULL,NULL,NULL,'2021-01-17',NULL,NULL,NULL,NULL),(95,NULL,NULL,NULL,NULL,NULL,'2021-01-18',NULL,NULL,NULL,NULL),(96,NULL,NULL,NULL,NULL,NULL,'2021-01-19',NULL,NULL,NULL,NULL),(97,NULL,NULL,NULL,NULL,NULL,'2021-01-20',NULL,NULL,NULL,NULL),(98,NULL,NULL,NULL,NULL,NULL,'2021-01-21',NULL,NULL,NULL,NULL),(99,NULL,NULL,NULL,NULL,NULL,'2021-01-01',NULL,NULL,NULL,NULL),(100,NULL,NULL,NULL,NULL,NULL,'2021-01-03',NULL,NULL,NULL,NULL),(101,NULL,NULL,NULL,NULL,NULL,'2021-01-04',NULL,NULL,NULL,NULL),(102,NULL,NULL,NULL,NULL,NULL,'2021-01-05',NULL,NULL,NULL,NULL),(103,NULL,NULL,NULL,NULL,NULL,'2021-02-06',NULL,NULL,NULL,NULL),(104,NULL,NULL,NULL,NULL,NULL,'2021-02-17',NULL,NULL,NULL,NULL),(105,NULL,NULL,NULL,NULL,NULL,'2021-02-18',NULL,NULL,NULL,NULL),(106,NULL,NULL,NULL,NULL,NULL,'2021-02-19',NULL,NULL,NULL,NULL),(107,NULL,NULL,NULL,NULL,NULL,'2021-02-20',NULL,NULL,NULL,NULL),(108,NULL,NULL,NULL,NULL,NULL,'2021-02-21',NULL,NULL,NULL,NULL),(109,NULL,NULL,NULL,NULL,NULL,'2021-03-06',NULL,NULL,NULL,NULL),(110,NULL,NULL,NULL,NULL,NULL,'2021-03-17',NULL,NULL,NULL,NULL),(111,NULL,NULL,NULL,NULL,NULL,'2021-03-18',NULL,NULL,NULL,NULL),(112,NULL,NULL,NULL,NULL,NULL,'2021-03-19',NULL,NULL,NULL,NULL),(113,NULL,NULL,NULL,NULL,NULL,'2021-03-20',NULL,NULL,NULL,NULL),(114,NULL,NULL,NULL,NULL,NULL,'2021-03-21',NULL,NULL,NULL,NULL),(115,NULL,NULL,NULL,NULL,NULL,'2021-03-01',NULL,NULL,NULL,NULL),(116,NULL,NULL,NULL,NULL,NULL,'2021-04-06',NULL,NULL,NULL,NULL),(117,NULL,NULL,NULL,NULL,NULL,'2021-04-17',NULL,NULL,NULL,NULL),(118,NULL,NULL,NULL,NULL,NULL,'2021-04-18',NULL,NULL,NULL,NULL),(119,NULL,NULL,NULL,NULL,NULL,'2021-05-06',NULL,NULL,NULL,NULL),(120,NULL,NULL,NULL,NULL,NULL,'2021-05-17',NULL,NULL,NULL,NULL),(121,NULL,NULL,NULL,NULL,NULL,'2021-06-06',NULL,NULL,NULL,NULL),(122,NULL,NULL,NULL,NULL,NULL,'2021-06-17',NULL,NULL,NULL,NULL),(123,NULL,NULL,NULL,NULL,NULL,'2021-07-06',NULL,NULL,NULL,NULL),(124,NULL,NULL,NULL,NULL,NULL,'2021-07-17',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `t_menu` */
 
@@ -117,7 +117,7 @@ CREATE TABLE `t_menu` (
 
 /*Data for the table `t_menu` */
 
-insert  into `t_menu`(`id`,`name`,`linkUrl`,`path`,`priority`,`icon`,`description`,`parentMenuId`,`level`) values (1,'会员管理',NULL,'2',1,'fa-user-md',NULL,NULL,1),(2,'会员档案','member.html','/2-1',1,NULL,NULL,1,2),(3,'体检上传',NULL,'/2-2',2,NULL,NULL,1,2),(4,'会员统计',NULL,'/2-3',3,NULL,NULL,1,2),(5,'预约管理',NULL,'3',2,'fa-tty',NULL,NULL,1),(6,'预约列表','ordersettinglist.html','/3-1',1,NULL,NULL,5,2),(7,'预约设置','ordersetting.html','/3-2',2,NULL,NULL,5,2),(8,'套餐管理','setmeal.html','/3-3',3,NULL,NULL,5,2),(9,'检查组管理','checkgroup.html','/3-4',4,NULL,NULL,5,2),(10,'检查项管理','checkitem.html','/3-5',5,NULL,NULL,5,2),(11,'健康评估',NULL,'4',3,'fa-stethoscope',NULL,NULL,1),(12,'中医体质辨识',NULL,'/4-1',1,NULL,NULL,11,2),(13,'统计分析',NULL,'5',4,'fa-heartbeat',NULL,NULL,1),(14,'会员数量','report_member.html','/5-1',1,NULL,NULL,13,2),(15,'系统设置',NULL,'6',5,'fa-users',NULL,NULL,1),(16,'菜单管理','menu.html','/6-1',1,NULL,NULL,15,2),(17,'权限管理','permission.html','/6-2',2,NULL,NULL,15,2),(18,'角色管理','role.html','/6-3',3,NULL,NULL,15,2),(19,'用户管理','user.html','/6-4',4,NULL,NULL,15,2),(20,'套餐占比','report_setmeal.html','/5-2',2,NULL,NULL,13,2),(21,'运营数据','report_business.html','/5-3',3,NULL,NULL,13,2);
+insert  into `t_menu`(`id`,`name`,`linkUrl`,`path`,`priority`,`icon`,`description`,`parentMenuId`,`level`) values (1,'会员管理',NULL,'2',1,'fa-user-md',NULL,NULL,1),(2,'会员列表','member.html','/2-1',1,NULL,NULL,1,2),(3,'体检处理',NULL,'/2-2',2,NULL,NULL,1,2),(4,'会员统计',NULL,'/2-3',3,NULL,NULL,1,2),(5,'预约管理',NULL,'3',2,'fa-tty',NULL,NULL,1),(6,'预约列表','ordersettinglist.html','/3-1',1,NULL,NULL,5,2),(7,'预约设置','ordersetting.html','/3-2',2,NULL,NULL,5,2),(8,'套餐管理','setmeal.html','/3-3',3,NULL,NULL,5,2),(9,'检查组管理','checkgroup.html','/3-4',4,NULL,NULL,5,2),(10,'检查项管理','checkitem.html','/3-5',5,NULL,NULL,5,2),(11,'健康评估',NULL,'4',3,'fa-stethoscope',NULL,NULL,1),(12,'中医体质辨识',NULL,'/4-1',1,NULL,NULL,11,2),(13,'统计分析',NULL,'5',4,'fa-heartbeat',NULL,NULL,1),(14,'会员数量','report_member.html','/5-1',1,NULL,NULL,13,2),(15,'系统设置',NULL,'6',5,'el-icon-setting',NULL,NULL,1),(16,'菜单管理','menu.html','/6-4',1,NULL,NULL,15,2),(17,'权限管理','permission.html','/6-3',2,NULL,NULL,15,2),(18,'角色管理','role.html','/6-2',3,NULL,NULL,15,2),(19,'用户管理','user.html','/6-1',4,NULL,NULL,15,2),(20,'套餐占比','report_setmeal.html','/5-2',2,NULL,NULL,13,2),(21,'运营数据','report_business.html','/5-3',3,NULL,NULL,13,2);
 
 /*Table structure for table `t_order` */
 
@@ -140,7 +140,7 @@ CREATE TABLE `t_order` (
 
 /*Data for the table `t_order` */
 
-insert  into `t_order`(`id`,`member_id`,`orderDate`,`orderType`,`orderStatus`,`setmeal_id`,`remark`) values (11,92,'2021-11-14','微信预约','已到诊',5,'结果未出');
+insert  into `t_order`(`id`,`member_id`,`orderDate`,`orderType`,`orderStatus`,`setmeal_id`,`remark`) values (1,6,'2021-11-15','微信预约','已到诊',5,'结果未出'),(2,7,'2021-11-16','微信预约','已到诊',6,'结果未出'),(3,8,'2021-11-17','微信预约','已到诊',7,'结果未出'),(4,9,'2021-11-18','微信预约','已到诊',9,'结果未出'),(5,10,'2021-11-19','微信预约','已到诊',11,'结果未出'),(11,92,'2021-11-14','微信预约','已到诊',5,'结果未出');
 
 /*Table structure for table `t_ordersetting` */
 
@@ -168,11 +168,11 @@ CREATE TABLE `t_permission` (
   `keyword` varchar(64) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_permission` */
 
-insert  into `t_permission`(`id`,`name`,`keyword`,`description`) values (1,'新增检查项','CHECKITEM_ADD',NULL),(2,'删除检查项','CHECKITEM_DELETE',NULL),(3,'编辑检查项','CHECKITEM_EDIT',NULL),(4,'查询检查项','CHECKITEM_QUERY',NULL),(5,'新增检查组','CHECKGROUP_ADD',NULL),(6,'删除检查组','CHECKGROUP_DELETE',NULL),(7,'编辑检查组','CHECKGROUP_EDIT',NULL),(8,'查询检查组','CHECKGROUP_QUERY',NULL),(9,'新增套餐','SETMEAL_ADD',NULL),(10,'删除套餐','SETMEAL_DELETE',NULL),(11,'编辑套餐','SETMEAL_EDIT',NULL),(12,'查询套餐','SETMEAL_QUERY',NULL),(13,'预约设置','ORDERSETTING',NULL),(14,'查看统计报表','REPORT_VIEW',NULL),(15,'新增菜单','MENU_ADD',NULL),(16,'删除菜单','MENU_DELETE',NULL),(17,'编辑菜单','MENU_EDIT',NULL),(18,'查询菜单','MENU_QUERY',NULL),(19,'新增角色','ROLE_ADD',NULL),(20,'删除角色','ROLE_DELETE',NULL),(21,'编辑角色','ROLE_EDIT',NULL),(22,'查询角色','ROLE_QUERY',NULL),(23,'新增用户','USER_ADD',NULL),(24,'删除用户','USER_DELETE',NULL),(25,'编辑用户','USER_EDIT',NULL),(26,'查询用户','USER_QUERY',NULL);
+insert  into `t_permission`(`id`,`name`,`keyword`,`description`) values (1,'新增检查项','CHECKITEM_ADD',NULL),(2,'删除检查项','CHECKITEM_DELETE',NULL),(3,'编辑检查项','CHECKITEM_EDIT',NULL),(4,'查询检查项','CHECKITEM_QUERY',NULL),(5,'新增检查组','CHECKGROUP_ADD',NULL),(6,'删除检查组','CHECKGROUP_DELETE',NULL),(7,'编辑检查组','CHECKGROUP_EDIT',NULL),(8,'查询检查组','CHECKGROUP_QUERY',NULL),(9,'新增套餐','SETMEAL_ADD',NULL),(10,'删除套餐','SETMEAL_DELETE',NULL),(11,'编辑套餐','SETMEAL_EDIT',NULL),(12,'查询套餐','SETMEAL_QUERY',NULL),(13,'预约设置','ORDERSETTING',NULL),(14,'统计报表','REPORT_VIEW',NULL),(15,'新增菜单','MENU_ADD',NULL),(16,'删除菜单','MENU_DELETE',NULL),(17,'编辑菜单','MENU_EDIT',NULL),(18,'查询菜单','MENU_QUERY',NULL),(19,'新增角色','ROLE_ADD',NULL),(20,'删除角色','ROLE_DELETE',NULL),(21,'编辑角色','ROLE_EDIT',NULL),(22,'查询角色','ROLE_QUERY',NULL),(23,'新增用户','USER_ADD',NULL),(24,'删除用户','USER_DELETE',NULL),(25,'编辑用户','USER_EDIT',NULL),(26,'查询用户','USER_QUERY',NULL),(30,'会员列表','MEMBER_LIST','会员列表'),(31,'体检处理','EXAM_RESULT','体检处理'),(32,'会员统计','report_member','会员统计');
 
 /*Table structure for table `t_role` */
 
@@ -184,11 +184,11 @@ CREATE TABLE `t_role` (
   `keyword` varchar(64) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_role` */
 
-insert  into `t_role`(`id`,`name`,`keyword`,`description`) values (1,'系统管理员','ROLE_ADMIN','管理系统'),(2,'健康管理师','ROLE_HEALTH_MANAGER','健康管理');
+insert  into `t_role`(`id`,`name`,`keyword`,`description`) values (1,'系统管理员','ROLE_ADMIN','管理系统'),(2,'健康管理师','ROLE_HEALTH_MANAGER','健康管理'),(7,'会员管理员','MEMBER_ADMIN','管理会员信息');
 
 /*Table structure for table `t_role_menu` */
 
@@ -222,7 +222,7 @@ CREATE TABLE `t_role_permission` (
 
 /*Data for the table `t_role_permission` */
 
-insert  into `t_role_permission`(`role_id`,`permission_id`) values (1,1),(2,1),(1,2),(2,2),(1,3),(2,3),(1,4),(2,4),(1,5),(2,5),(1,6),(2,6),(1,7),(2,7),(1,8),(2,8),(1,9),(2,9),(1,10),(2,10),(1,11),(2,11),(1,12),(2,12),(1,13),(2,13),(1,14),(2,14),(1,15),(1,16),(1,17),(1,18),(1,19),(1,20),(1,21),(1,22),(1,23),(1,24),(1,25),(1,26);
+insert  into `t_role_permission`(`role_id`,`permission_id`) values (1,1),(2,1),(1,2),(2,2),(1,3),(2,3),(1,4),(2,4),(1,5),(2,5),(1,6),(2,6),(1,7),(2,7),(1,8),(2,8),(1,9),(2,9),(1,10),(2,10),(1,11),(2,11),(1,12),(2,12),(1,13),(2,13),(1,14),(2,14),(1,15),(1,16),(1,17),(1,18),(1,19),(1,20),(1,21),(1,22),(1,23),(1,24),(1,25),(1,26),(7,30),(7,31),(7,32);
 
 /*Table structure for table `t_setmeal` */
 
@@ -277,7 +277,7 @@ CREATE TABLE `t_user` (
   `station` varchar(1) DEFAULT NULL,
   `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_user` */
 
@@ -298,7 +298,7 @@ CREATE TABLE `t_user_role` (
 
 /*Data for the table `t_user_role` */
 
-insert  into `t_user_role`(`user_id`,`role_id`) values (1,1),(2,2);
+insert  into `t_user_role`(`user_id`,`role_id`) values (1,1),(2,2),(3,7);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
