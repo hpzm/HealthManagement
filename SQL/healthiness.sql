@@ -73,24 +73,6 @@ CREATE TABLE `t_checkitem` (
 
 insert  into `t_checkitem`(`id`,`code`,`name`,`sex`,`age`,`price`,`type`,`attention`,`remark`) values (28,'0001','身高','0','0-100',5,'1','无','身高'),(29,'0002','体重','0','0-100',5,'1','无','体重'),(30,'0003','体重指数','0','0-100',5,'1','无','体重指数'),(31,'0004','收缩压','0','0-100',5,'1','无','收缩压'),(32,'0005','舒张压','0','0-100',5,'1','无','舒张压'),(33,'0006','裸视力（右）','0','0-100',5,'1','无','裸视力（右）'),(34,'0007','裸视力（左）','0','0-100',5,'1','无','裸视力（左）'),(35,'0008','矫正视力（右）','0','0-100',5,'1','无','矫正视力（右）'),(36,'0009','矫正视力（左）','0','0-100',5,'1','无','矫正视力（左）'),(37,'0010','色觉','0','0-100',5,'1','无','色觉'),(38,'0011','白细胞计数','0','0-100',10,'2','无','白细胞计数'),(39,'0012','红细胞计数','0','0-100',10,'2',NULL,'红细胞计数'),(40,'0013','血红蛋白','0','0-100',10,'2',NULL,'血红蛋白'),(41,'0014','红细胞压积','0','0-100',10,'2',NULL,'红细胞压积'),(42,'0015','平均红细胞体积','0','0-100',10,'2',NULL,'平均红细胞体积'),(43,'0016','平均红细胞血红蛋白含量','0','0-100',10,'2',NULL,'平均红细胞血红蛋白含量'),(44,'0017','平均红细胞血红蛋白浓度','0','0-100',10,'2',NULL,'平均红细胞血红蛋白浓度'),(45,'0018','红细胞分布宽度-变异系数','0','0-100',10,'2',NULL,'红细胞分布宽度-变异系数'),(46,'0019','血小板计数','0','0-100',10,'2',NULL,'血小板计数'),(47,'0020','平均血小板体积','0','0-100',10,'2',NULL,'平均血小板体积'),(48,'0021','血小板分布宽度','0','0-100',10,'2',NULL,'血小板分布宽度'),(49,'0022','淋巴细胞百分比','0','0-100',10,'2',NULL,'淋巴细胞百分比'),(50,'0023','中间细胞百分比','0','0-100',10,'2',NULL,'中间细胞百分比'),(51,'0024','中性粒细胞百分比','0','0-100',10,'2',NULL,'中性粒细胞百分比'),(52,'0025','淋巴细胞绝对值','0','0-100',10,'2',NULL,'淋巴细胞绝对值'),(53,'0026','中间细胞绝对值','0','0-100',10,'2',NULL,'中间细胞绝对值'),(54,'0027','中性粒细胞绝对值','0','0-100',10,'2',NULL,'中性粒细胞绝对值'),(55,'0028','红细胞分布宽度-标准差','0','0-100',10,'2',NULL,'红细胞分布宽度-标准差'),(56,'0029','血小板压积','0','0-100',10,'2',NULL,'血小板压积'),(57,'0030','尿比重','0','0-100',10,'2',NULL,'尿比重'),(58,'0031','尿酸碱度','0','0-100',10,'2',NULL,'尿酸碱度'),(59,'0032','尿白细胞','0','0-100',10,'2',NULL,'尿白细胞'),(60,'0033','尿亚硝酸盐','0','0-100',10,'2',NULL,'尿亚硝酸盐'),(61,'0034','尿蛋白质','0','0-100',10,'2',NULL,'尿蛋白质'),(62,'0035','尿糖','0','0-100',10,'2',NULL,'尿糖'),(63,'0036','尿酮体','0','0-100',10,'2',NULL,'尿酮体'),(64,'0037','尿胆原','0','0-100',10,'2',NULL,'尿胆原'),(65,'0038','尿胆红素','0','0-100',10,'2',NULL,'尿胆红素'),(66,'0039','尿隐血','0','0-100',10,'2',NULL,'尿隐血'),(67,'0040','尿镜检红细胞','0','0-100',10,'2',NULL,'尿镜检红细胞'),(68,'0041','尿镜检白细胞','0','0-100',10,'2',NULL,'尿镜检白细胞'),(69,'0042','上皮细胞','0','0-100',10,'2',NULL,'上皮细胞'),(70,'0043','无机盐类','0','0-100',10,'2',NULL,'无机盐类'),(71,'0044','尿镜检蛋白定性','0','0-100',10,'2',NULL,'尿镜检蛋白定性'),(72,'0045','丙氨酸氨基转移酶','0','0-100',10,'2',NULL,'丙氨酸氨基转移酶'),(73,'0046','天门冬氨酸氨基转移酶','0','0-100',10,'2',NULL,'天门冬氨酸氨基转移酶'),(74,'0047','Y-谷氨酰转移酶','0','0-100',10,'2',NULL,'Y-谷氨酰转移酶'),(75,'0048','尿素','0','0-100',10,'2',NULL,'尿素'),(76,'0049','肌酐','0','0-100',10,'2',NULL,'肌酐'),(77,'0050','尿酸','0','0-100',10,'2',NULL,'尿酸'),(78,'0051','总胆固醇','0','0-100',10,'2',NULL,'总胆固醇'),(79,'0052','甘油三酯','0','0-100',10,'2',NULL,'甘油三酯'),(80,'0053','高密度脂蛋白胆固醇','0','0-100',10,'2',NULL,'高密度脂蛋白胆固醇'),(81,'0054','低密度脂蛋白胆固醇','0','0-100',10,'2',NULL,'低密度脂蛋白胆固醇'),(82,'0055','磷酸肌酸激酶','0','0-100',10,'2',NULL,'磷酸肌酸激酶'),(83,'0056','磷酸肌酸激酶同工酶','0','0-100',10,'2',NULL,'磷酸肌酸激酶同工酶'),(84,'0057','乳酸脱氢酶','0','0-100',10,'2',NULL,'乳酸脱氢酶'),(85,'0058','三碘甲状腺原氨酸','0','0-100',10,'2',NULL,'三碘甲状腺原氨酸'),(86,'0059','甲状腺素','0','0-100',10,'2',NULL,'甲状腺素'),(87,'0060','促甲状腺激素','0','0-100',10,'2',NULL,'促甲状腺激素'),(88,'0061','子宫','2','0-100',10,'2',NULL,'子宫'),(89,'0062','附件','2','0-100',10,'2',NULL,'附件'),(90,'0063','总胆红素','0','0-100',10,'2',NULL,'总胆红素'),(91,'0064','直接胆红素','0','0-100',10,'2',NULL,'直接胆红素'),(92,'0065','间接胆红素','0','0-100',10,'2',NULL,'间接胆红素');
 
-/*Table structure for table `t_examridesult` */
-
-DROP TABLE IF EXISTS `t_examridesult`;
-
-CREATE TABLE `t_examridesult` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `orderDate` date DEFAULT NULL,
-  `name` varchar(10) DEFAULT NULL,
-  `phoneNumber` varchar(11) DEFAULT NULL,
-  `setmealName` varchar(100) DEFAULT NULL,
-  `remark` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
-
-/*Data for the table `t_examridesult` */
-
-insert  into `t_examridesult`(`id`,`orderDate`,`name`,`phoneNumber`,`setmealName`,`remark`) values (11,'2021-11-14','王鹏','18337723923','入职无忧体检套餐（男女通用）','结果未出');
-
 /*Table structure for table `t_member` */
 
 DROP TABLE IF EXISTS `t_member`;
@@ -131,7 +113,7 @@ CREATE TABLE `t_menu` (
   PRIMARY KEY (`id`),
   KEY `FK_Reference_13` (`parentMenuId`),
   CONSTRAINT `FK_Reference_13` FOREIGN KEY (`parentMenuId`) REFERENCES `t_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_menu` */
 
@@ -176,24 +158,6 @@ CREATE TABLE `t_ordersetting` (
 
 insert  into `t_ordersetting`(`id`,`orderDate`,`number`,`reservations`) values (72,'2021-11-10',100,100),(73,'2021-11-11',100,100),(74,'2021-11-12',100,100),(75,'2021-11-13',100,0),(76,'2021-11-14',100,1),(78,'2021-11-16',100,0),(79,'2021-11-17',100,0),(80,'2021-11-18',200,0),(81,'2021-11-19',200,0),(82,'2021-11-20',300,0),(83,'2021-11-21',100,0),(84,'2021-11-22',100,0),(85,'2021-11-23',100,0),(86,'2021-11-24',100,0),(87,'2021-11-25',100,0),(88,'2021-11-26',100,0),(89,'2021-11-27',100,0),(90,'2021-11-28',100,0),(91,'2021-11-29',100,0),(92,'2021-11-30',100,0),(93,'2021-12-01',100,0),(94,'2021-12-02',100,0),(95,'2021-12-03',100,0),(96,'2021-12-04',100,0),(97,'2021-12-05',100,0),(98,'2021-12-06',100,0),(99,'2021-12-07',100,0),(100,'2021-12-08',100,0),(101,'2021-12-09',100,0),(102,'2021-12-10',100,0),(103,'2021-12-11',100,0),(104,'2021-12-12',100,0),(105,'2021-12-13',100,0),(106,'2021-12-14',100,0),(107,'2021-12-15',100,0),(108,'2021-12-16',100,0),(109,'2021-12-17',100,0),(110,'2021-12-18',100,0),(111,'2021-12-19',100,0),(112,'2021-12-20',100,0),(113,'2021-12-21',100,0),(114,'2021-12-22',100,0),(115,'2021-12-23',100,0),(116,'2021-12-24',100,0),(117,'2021-12-25',100,0),(118,'2021-12-26',100,0),(119,'2021-12-27',100,0),(120,'2021-12-28',100,0),(121,'2021-12-29',100,0),(122,'2021-12-30',100,0),(123,'2021-12-31',100,0);
 
-/*Table structure for table `t_ordersettinglist` */
-
-DROP TABLE IF EXISTS `t_ordersettinglist`;
-
-CREATE TABLE `t_ordersettinglist` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `orderDate` date DEFAULT NULL,
-  `name` varchar(32) DEFAULT NULL,
-  `phoneNumber` varchar(11) DEFAULT NULL,
-  `orderType` varchar(8) DEFAULT NULL,
-  `orderStatus` varchar(8) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
-
-/*Data for the table `t_ordersettinglist` */
-
-insert  into `t_ordersettinglist`(`id`,`orderDate`,`name`,`phoneNumber`,`orderType`,`orderStatus`) values (11,'2021-11-14','王鹏','18337723923','微信预约','已到诊');
-
 /*Table structure for table `t_permission` */
 
 DROP TABLE IF EXISTS `t_permission`;
@@ -204,7 +168,7 @@ CREATE TABLE `t_permission` (
   `keyword` varchar(64) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_permission` */
 
@@ -220,11 +184,11 @@ CREATE TABLE `t_role` (
   `keyword` varchar(64) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_role` */
 
-insert  into `t_role`(`id`,`name`,`keyword`,`description`) values (1,'系统管理员','ROLE_ADMIN',NULL),(2,'健康管理师','ROLE_HEALTH_MANAGER',NULL);
+insert  into `t_role`(`id`,`name`,`keyword`,`description`) values (1,'系统管理员','ROLE_ADMIN','管理系统'),(2,'健康管理师','ROLE_HEALTH_MANAGER','健康管理');
 
 /*Table structure for table `t_role_menu` */
 
@@ -313,7 +277,7 @@ CREATE TABLE `t_user` (
   `station` varchar(1) DEFAULT NULL,
   `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `t_user` */
 

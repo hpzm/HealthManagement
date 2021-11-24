@@ -70,7 +70,6 @@ public class SetmealController {
         return setmealService.pageQuery(queryPageBean);
     }
 
-    //根据检查组ID查询检查组包含的多个检查项ID
     @RequestMapping("/findCheckGroupsBySetMealId")
     public Result findCheckGroupsBySetMealId(Integer id) {
         try {
@@ -107,7 +106,7 @@ public class SetmealController {
         }
     }
 
-    //编辑检查项
+    //编辑
     @RequestMapping("/edit")
     public Result edit(@RequestBody Setmeal setmeal, Integer[] checkgroupIds) {
         try {

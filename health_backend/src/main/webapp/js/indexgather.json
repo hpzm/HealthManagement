@@ -6,11 +6,11 @@ var json={
     },
     {
       "title": "今日评估人数",
-      "number": 8
+      "number": 25
     },
     {
       "title": "今日未执行",
-      "number": 12
+      "number": 5
     },
     {
       "title": "今日已执行",
@@ -19,19 +19,19 @@ var json={
   ],
   "gather": [
     {
-      "title": "今日预约人数",
-      "number": 15,
+      "title": "本周预约人数",
+      "number": 100,
     },
     {
-      "title": "今日评估人数",
-      "number": 20
+      "title": "本周评估人数",
+      "number": 80
     },
     {
-      "title": "今日未执行",
-      "number":40
+      "title": "本周未执行",
+      "number":30
     },
     {
-      "title": "今日已执行",
+      "title": "本周已执行",
       "number": 50
     }
   ]

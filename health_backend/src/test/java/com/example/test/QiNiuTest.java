@@ -1,4 +1,4 @@
-package test;
+package com.example.test;
 
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;

@@ -244,6 +244,8 @@
                                 this.$message({
                                     type: 'success',
                                     message: res.data.message
+                                }).catch((r) => {
+                                    this.showMessage(r);
                                 });
                                 //关闭新增窗口
                                 this.dialogFormVisible4Edit = false;
@@ -272,7 +274,9 @@
                                 this.$message({
                                     type: 'success',
                                     message: res.data.message
-                                });
+                                }).catch((r) => {
+                                    this.showMessage(r);
+                                });;
                                 //关闭新增窗口
                                 this.dialogFormVisible = false;
                                 //分页查询
@@ -300,7 +304,9 @@
                 axios.post("/checkitem/findPage.do", param).then((res) => {
                     this.pagination.total = res.data.total;
                     this.dataList = res.data.rows;
-                });
+                }).catch((r) => {
+                    this.showMessage(r);
+                });;
 
             },
             // 重置表单
@@ -323,7 +329,9 @@
                     } else {
                         this.$message.error(res.data.message);
                     }
-                });
+                }).catch((r) => {
+                    this.showMessage(r);
+                });;
             },
             //切换页码
             handleCurrentChange(currentPage) {

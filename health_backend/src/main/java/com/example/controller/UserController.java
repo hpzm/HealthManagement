@@ -7,7 +7,6 @@ import com.example.entity.QueryPageBean;
 import com.example.entity.Result;
 import com.example.pojo.User;
 import com.example.service.UserService;
-import com.example.utils.MD5Utils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,8 +42,6 @@ public class UserController {
     @RequestMapping("/add")
     public Result add(@RequestBody User user, Integer[] roleIds) {
         try {
-//            user.setPassword(MD5Utils.md5(user.getPassword()));
-//            System.out.println(user.getPassword());
             userService.add(user, roleIds);
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +91,7 @@ public class UserController {
         return new Result(true, "用户更新成功");
     }
 
-    //删除检查组
+    //删除
     @RequestMapping("/delete")
     public Result delete(Integer id) {
         try {

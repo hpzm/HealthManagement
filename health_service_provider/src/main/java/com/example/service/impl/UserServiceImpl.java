@@ -14,6 +14,7 @@ import com.example.utils.MD5Utils;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
@@ -58,6 +59,9 @@ public class UserServiceImpl implements UserService {
 
     //新增User，同时需要让关联role
     public void add(User user, Integer[] roleIds) {
+        BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder() ;
+        String userPwdEncode = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(userPwdEncode);
         userDao.add(user);
         //设置检查组和检查项的多对多的关联关系，操作t_checkgroup_checkitem表
         Integer userId = user.getId();

@@ -42,7 +42,7 @@ public class MenuController {
         return new Result(true, "新增菜单成功");
     }
 
-    //检查项分页查询
+    //分页查询
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean) {
         PageResult pageResult = menuService.pageQuery(queryPageBean);
