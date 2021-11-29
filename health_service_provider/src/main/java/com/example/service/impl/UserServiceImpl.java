@@ -94,7 +94,9 @@ public class UserServiceImpl implements UserService {
 
     //根据ID查询
     public User findById(Integer id) {
-        return userDao.findById(id);
+        User user = userDao.findById(id);
+        user.setPassword("");
+        return user;
     }
 
 
@@ -105,11 +107,11 @@ public class UserServiceImpl implements UserService {
 
     //编辑信息，同时需要关联
     public void edit(User user, Integer[] roleIds) {
-        //修改检查组基本信息，操作检查组t_checkgroup表
+        BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder() ;
+        String userPwdEncode = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(userPwdEncode);
         userDao.edit(user);
-        //清理当前检查组关联的检查项，操作中间关系表t_checkgroup_checkitem表
         userDao.deleteAssocication(user.getId());
-        //重新建立当前检查组和检查项的关联关系
         Integer userId = user.getId();
         this.setUserAndRole(userId, roleIds);
     }
