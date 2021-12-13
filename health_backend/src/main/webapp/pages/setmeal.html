@@ -380,9 +380,7 @@
                 });
                 if (response.flag) {
                     //预览刚刚上传的文件
-                    // this.imageUrl = "http://puco9aur6.bkt.clouddn.com/"+response.data;
-                    this.imageUrl = "http://r28fqcfly.hn-bkt.clouddn.com/" + response.data;
-                    // this.imageUrl = "http://r28fqcfly.hn-bkt.clouddn.com/_log/health1277/2021-11-10-09-00/part0.gz";
+                    this.imageUrl = "https://health-1257135628.cos.ap-nanjing.myqcloud.com/" + response.data;
                     this.formData.img = response.data;//将文件名称赋值给模型数据，用于表单提交
                 }
             },
@@ -494,7 +492,7 @@
                 axios.get("/setmeal/findById.do?id=" + row.id).then((res) => {
                     if (res.data.flag) {
                         this.formData = res.data.data;//为模型数据赋值，基于VUE数据绑定进行回显
-                        this.imageUrl = "http://r28fqcfly.hn-bkt.clouddn.com/" + res.data.data.img;
+                        this.imageUrl = "https://health-1257135628.cos.ap-nanjing.myqcloud.com/" + res.data.data.img;
                     } else {
                         this.$message.error(res.data.message);
                     }

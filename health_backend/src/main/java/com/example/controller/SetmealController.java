@@ -8,13 +8,12 @@ import com.example.entity.QueryPageBean;
 import com.example.entity.Result;
 import com.example.pojo.Setmeal;
 import com.example.service.SetmealService;
-import com.example.utils.QiniuUtils;
+import com.example.utils.TencentCosUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.JedisPool;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,9 +39,10 @@ public class SetmealController {
         String fileName = UUID.randomUUID().toString() + extention;//	FuM1Sa5TtL_ekLsdkYWcf5pyjKGu.jpg
         try {
             //将文件上传到七牛云服务器
-            QiniuUtils.upload2Qiniu(imgFile.getBytes(), fileName);
+            //QiniuUtils.upload2Qiniu(imgFile.getBytes(), fileName);
+            TencentCosUtils.uploadFile(imgFile, fileName);
             jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_RESOURCES, fileName);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return new Result(false, MessageConstant.PIC_UPLOAD_FAIL);
         }
@@ -85,6 +85,9 @@ public class SetmealController {
     @RequestMapping("/delete")
     public Result delete(Integer id) {
         try {
+            Setmeal setmeal = setmealService.findSetmealById(id);
+            String img = setmeal.getImg();
+            TencentCosUtils.deleteFile(img);
             setmealService.deleteById(id);
         } catch (Exception e) {
             e.printStackTrace();

@@ -88,7 +88,6 @@ public class MemberController {
         }
     }
 
-    //编辑检查组
     @RequestMapping("/edit")
     public Result edit(@RequestBody Member member) {
         try {
@@ -100,7 +99,6 @@ public class MemberController {
         return new Result(true, MessageConstant.EDIT_MEMBER_SUCCESS);
     }
 
-    //编辑检查组
     @RequestMapping("/logout")
     public Result logout(HttpServletResponse response) {
         try {
