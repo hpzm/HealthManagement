@@ -12,8 +12,11 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,7 +30,30 @@ public class MemberServiceImpl implements MemberService {
     private MemberDao memberDao;
 
     public Member findByTelephone(String telephone) {
-        return memberDao.findByTelephone(telephone);
+        Member member = memberDao.findByTelephone(telephone);
+        if ("1".equals(member.getSex())) {
+            member.setSex("男");
+        } else {
+            member.setSex("女");
+        }
+        // 出生日期
+        String IdCard = member.getIdCard();
+        String birthday = null;
+        // 身份证号不为空
+        if (IdCard.length() == 15) {
+            birthday = "19" + IdCard.substring(6, 8) + "-" + IdCard.substring(8, 10) + "-" + IdCard.substring(10, 12);
+        } else if (IdCard.length() == 18) {
+            birthday = IdCard.substring(6, 10) + "-" + IdCard.substring(10, 12) + "-" + IdCard.substring(12, 14);
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = simpleDateFormat.parse(birthday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        member.setBirthday(date);
+        return member;
     }
 
     //保存会员信息

@@ -122,22 +122,23 @@
                     <template>
                         <el-tabs v-model="activeName" type="card">
                             <el-tab-pane label="基本信息" name="first">
-                                <el-form label-position="right" label-width="100px">
+                                <el-form label-position="right" label-width="100px" ref="dataEditForm" :rules="rules"
+                                         :model="formData">
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="编码">
+                                            <el-form-item label="套餐编码" prop="code">
                                                 <el-input v-model="formData.code"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="名称">
+                                            <el-form-item label="套餐名称" prop="name">
                                                 <el-input v-model="formData.name"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="适用性别">
+                                            <el-form-item label="适用性别" prop="sex">
                                                 <el-select v-model="formData.sex">
                                                     <el-option label="不限" value="0"></el-option>
                                                     <el-option label="男" value="1"></el-option>
@@ -146,26 +147,26 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="助记码">
+                                            <el-form-item label="助记码" prop="helpCode">
                                                 <el-input v-model="formData.helpCode"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="套餐价格">
+                                            <el-form-item label="套餐价格" prop="price">
                                                 <el-input v-model="formData.price"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="适用年龄">
+                                            <el-form-item label="适用年龄" prop="age">
                                                 <el-input v-model="formData.age"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="24">
-                                            <el-form-item label="上传图片">
+                                            <el-form-item label="上传图片" prop="img">
                                                 <el-upload
                                                         class="avatar-uploader"
                                                         action="/setmeal/upload.do"
@@ -235,23 +236,24 @@
                     <template>
                         <el-tabs v-model="activeName" type="card">
                             <el-tab-pane label="基本信息" name="first">
-<!--                                <el-form ref="dataEditForm" :model="formData"  label-position="right" label-width="100px">-->
-                                <el-form label-position="right" label-width="100px">
+                                <!--                                <el-form ref="dataEditForm" :model="formData"  label-position="right" label-width="100px">-->
+                                <el-form label-position="right" label-width="100px" ref="dataEditForm" :rules="rules"
+                                         :model="formData">
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="编码">
+                                            <el-form-item label="编码" prop="code">
                                                 <el-input v-model="formData.code"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="名称">
+                                            <el-form-item label="名称" prop="name">
                                                 <el-input v-model="formData.name"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="适用性别">
+                                            <el-form-item label="适用性别" prop="sex">
                                                 <el-select v-model="formData.sex">
                                                     <el-option label="不限" value="0"></el-option>
                                                     <el-option label="男" value="1"></el-option>
@@ -260,26 +262,26 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="助记码">
+                                            <el-form-item label="助记码" prop="helpCode">
                                                 <el-input v-model="formData.helpCode"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="套餐价格">
+                                            <el-form-item label="套餐价格" prop="price">
                                                 <el-input v-model="formData.price"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="适用年龄">
+                                            <el-form-item label="适用年龄" prop="age">
                                                 <el-input v-model="formData.age"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="24">
-                                            <el-form-item label="上传图片">
+                                            <el-form-item label="上传图片" prop="img">
                                                 <el-upload
                                                         class="avatar-uploader"
                                                         action="/setmeal/upload.do"
@@ -367,6 +369,15 @@
             checkgroupIds: [],//添加表单窗口中检查组复选框对应id
             dialogFormVisible: false,//控制添加窗口显示/隐藏
             dialogFormVisible4Edit: false,//编辑表单是否可见
+            rules: {//校验规则
+                code: [{required: true, message: '套餐编码为必填项', trigger: 'blur'}],
+                name: [{required: true, message: '套餐名称为必填项', trigger: 'blur'}],
+                sex: [{required: true, message: '适用性别为必填项', trigger: 'blur'}],
+                helpCode: [{required: true, message: '助记码为必填项', trigger: 'blur'}],
+                age: [{required: true, message: '适用年龄为必填项', trigger: 'blur'}],
+                price: [{required: true, message: '套餐价格为必填项', trigger: 'blur'}],
+                img: [{required: true, message: '上传图片为必填项', trigger: 'blur'}],
+            }
         },
         created() {
             this.findPage();
@@ -398,20 +409,27 @@
             },
             //添加
             handleAdd() {
-                //发送ajax请求，提交表单，包括两部分：套餐基本信息、关联的检查组id数组
-                axios.post("/setmeal/add.do?checkgroupIds=" + this.checkgroupIds, this.formData).then((res) => {
-                    if (res.data.flag) {
-                        //执行成功，提示信息
-                        this.$message({
-                            type: 'success',
-                            message: res.data.message
+                this.$refs['dataEditForm'].validate((valid) => {
+                    if (valid) {
+                        //发送ajax请求，提交表单，包括两部分：套餐基本信息、关联的检查组id数组
+                        axios.post("/setmeal/add.do?checkgroupIds=" + this.checkgroupIds, this.formData).then((res) => {
+                            //关闭新增窗口
+                            this.dialogFormVisible = false;
+                            //分页查询
+                            this.findPage();
+                            if (res.data.flag) {
+                                //执行成功，提示信息
+                                this.$message({
+                                    type: 'success',
+                                    message: res.data.message
+                                });
+                            } else {
+                                this.$message.error(res.data.message);
+                            }
                         });
-                        //关闭新增窗口
-                        this.dialogFormVisible = false;
-                        //分页查询
-                        this.findPage();
                     } else {
-                        this.$message.error(res.data.message);
+                        //校验不通过，提示错误信息
+                        this.$message.error("表单数据校验失败，请检查输入是否正确！");
                     }
                 });
             },
@@ -484,7 +502,7 @@
                 });
             },
             //弹出编辑窗口
-            handleUpdate(row){
+            handleUpdate(row) {
                 //重置表单数据
                 this.resetForm();
                 this.dialogFormVisible4Edit = true;
@@ -514,20 +532,27 @@
             },
             //编辑
             handleEdit() {
-                //进行处理
-                axios.post("/setmeal/edit.do?checkgroupIds=" + this.checkgroupIds, this.formData).then((res) => {
-                    if (res.data.flag) {
-                        //执行成功，提示信息
-                        this.$message({
-                            type: 'success',
-                            message: res.data.message
+                this.$refs['dataEditForm'].validate((valid) => {
+                    if (valid) {
+                        //进行处理
+                        axios.post("/setmeal/edit.do?checkgroupIds=" + this.checkgroupIds, this.formData).then((res) => {
+                            //关闭窗口
+                            this.dialogFormVisible4Edit = false;
+                            //分页查询
+                            this.findPage();
+                            if (res.data.flag) {
+                                //执行成功，提示信息
+                                this.$message({
+                                    type: 'success',
+                                    message: res.data.message
+                                });
+                            } else {
+                                this.$message.error(res.data.message);
+                            }
                         });
-                        //关闭窗口
-                        this.dialogFormVisible4Edit = false;
-                        //分页查询
-                        this.findPage();
                     } else {
-                        this.$message.error(res.data.message);
+                        //校验不通过，提示错误信息
+                        this.$message.error("表单数据校验失败，请检查输入是否正确！");
                     }
                 });
             },

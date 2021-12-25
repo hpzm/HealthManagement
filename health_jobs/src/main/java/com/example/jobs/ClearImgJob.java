@@ -1,7 +1,6 @@
 package com.example.jobs;
 
 import com.example.constant.RedisConstant;
-import com.example.utils.QiniuUtils;
 import com.example.utils.TencentCosUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.JedisPool;

@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/health_backend/src/main/webapp/WEB-INF/pages/system/dept/list.jsp" value="file://$PROJECT_DIR$/health_backend/src/main/webapp/WEB-INF/pages/system/dept" />
+        <entry key="file://$PROJECT_DIR$/health_backend/src/main/webapp/pages/checkgroup.html" value="file://$PROJECT_DIR$/health_backend/src/main/webapp/pages" />
         <entry key="file://$PROJECT_DIR$/health_backend/src/main/webapp/pages/member_archives.html" value="file://$PROJECT_DIR$/health_backend/src/main/webapp/pages" />
       </map>
     </option>

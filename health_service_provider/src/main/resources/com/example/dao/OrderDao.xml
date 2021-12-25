@@ -17,8 +17,8 @@
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into t_order(member_id,orderDate,orderType,orderStatus,setmeal_id)
-        values (#{memberId},#{orderDate},#{orderType},#{orderStatus},#{setmealId})
+        insert into t_order(member_id,orderDate,orderType,orderStatus,setmeal_id,remark)
+        values (#{memberId},#{orderDate},#{orderType},#{orderStatus},#{setmealId},#{remark})
     </insert>
 
     <!--动态条件查询-->

@@ -14,6 +14,7 @@ import com.example.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -107,7 +108,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<Map> findCheckRecord(String telephone) {
-        return orderDao.findCheckRecord(telephone);
+        List<Map> checkRecord = orderDao.findCheckRecord(telephone);
+        Map orderData = checkRecord.get(0);
+        Date orderDate = (Date) orderData.get("orderDate");
+        SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd"); //格式化当前系统日期
+        String dateTime = dateFm.format(orderDate);
+        orderData.put("orderDate",dateTime);
+        return checkRecord;
     }
 
     //结果未出

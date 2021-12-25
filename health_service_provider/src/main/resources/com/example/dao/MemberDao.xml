@@ -21,9 +21,9 @@
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into t_member(fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark)
+        insert into t_member(name,sex,idCard,phoneNumber,regTime,email,birthday,remark)
         values
-        (#{fileNumber},#{name},#{sex},#{idCard},#{phoneNumber},#{regTime},#{password},#{email},#{birthday},#{remark})
+        (#{name},#{sex},#{idCard},#{phoneNumber},#{regTime},#{email},#{birthday},#{remark})
     </insert>
 
     <!--删除会员-->

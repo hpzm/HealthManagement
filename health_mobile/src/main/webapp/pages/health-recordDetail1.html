@@ -63,11 +63,6 @@
                 //发送ajax请求，根据ID查询会员信息，用于页面展示
                 axios.post("/member/findByTelephone.do").then((res) => {
                     if (res.data.flag) {
-                        if(res.data.data.sex=1){
-                            res.data.data.sex='男';
-                        }else {
-                            res.data.data.sex='女';
-                        }
                         if(res.data.data.birthday == null) {
                             return null
                         }else {

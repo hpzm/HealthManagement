@@ -94,22 +94,22 @@
                     <template>
                         <el-tabs v-model="activeName" type="card">
                             <el-tab-pane label="基本信息" name="first">
-                                <el-form label-position="right" label-width="100px">
+                                <el-form ref="dataEditForm" :model="formData" label-position="right" label-width="100px" :rules="rules">
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="编码">
+                                            <el-form-item label="项目编码" prop="code">
                                                 <el-input v-model="formData.code"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="名称">
+                                            <el-form-item label="项目名称" prop="name">
                                                 <el-input v-model="formData.name"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="适用性别">
+                                            <el-form-item label="适用性别" prop="sex">
                                                 <el-select v-model="formData.sex">
                                                     <el-option label="不限" value="0"></el-option>
                                                     <el-option label="男" value="1"></el-option>
@@ -118,7 +118,7 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="助记码">
+                                            <el-form-item label="助记码" prop="helpCode">
                                                 <el-input v-model="formData.helpCode"/>
                                             </el-form-item>
                                         </el-col>
@@ -153,7 +153,8 @@
                                         <tbody>
                                         <tr v-for="c in tableData">
                                             <td>
-                                                <input :id="c.id" v-model="checkitemIds" type="checkbox" :value="c.id">
+                                                <input :id="c.id" v-model="checkitemIds" type="checkbox"
+                                                       :value="c.id">
                                             </td>
                                             <td><label :for="c.id">{{c.code}}</label></td>
                                             <td><label :for="c.id">{{c.name}}</label></td>
@@ -170,6 +171,7 @@
                         <el-button type="primary" @click="handleAdd()">确定</el-button>
                     </div>
                 </el-dialog>
+
             </div>
 
             <!-- 编辑标签弹层 -->
@@ -178,22 +180,22 @@
                     <template>
                         <el-tabs v-model="activeName" type="card">
                             <el-tab-pane label="基本信息" name="first">
-                                <el-form label-position="right" label-width="100px">
+                                <el-form ref="dataEditForm" :model="formData" label-position="right" label-width="100px" :rules="rules">
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="编码">
+                                            <el-form-item label="项目编码" prop="code">
                                                 <el-input v-model="formData.code"/>
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="名称">
+                                            <el-form-item label="项目名称" prop="name">
                                                 <el-input v-model="formData.name"/>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
                                     <el-row>
                                         <el-col :span="12">
-                                            <el-form-item label="适用性别">
+                                            <el-form-item label="适用性别" prop="sex">
                                                 <el-select v-model="formData.sex">
                                                     <el-option label="不限" value="0"></el-option>
                                                     <el-option label="男" value="1"></el-option>
@@ -202,7 +204,7 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="12">
-                                            <el-form-item label="助记码">
+                                            <el-form-item label="助记码" prop="helpCode">
                                                 <el-input v-model="formData.helpCode"/>
                                             </el-form-item>
                                         </el-col>
@@ -276,7 +278,13 @@
             tableData: [],//新增和编辑表单中对应的检查项列表数据
             checkitemIds: [],//新增和编辑表单中检查项对应的复选框，基于双向绑定可以进行回显和数据提交
             dialogFormVisible: false,//控制添加窗口显示/隐藏
-            dialogFormVisible4Edit: false//控制编辑窗口显示/隐藏
+            dialogFormVisible4Edit: false,//控制编辑窗口显示/隐藏
+            rules: {//校验规则
+                code: [{required: true, message: '项目编码为必填项', trigger: 'blur'}],
+                name: [{required: true, message: '项目名称为必填项', trigger: 'blur'}],
+                sex: [{required: true, message: '适用性别为必填项', trigger: 'blur'}],
+                helpCode: [{required: true, message: '助记码为必填项', trigger: 'blur'}],
+            }
         },
         created() {
             this.findPage();
@@ -284,20 +292,27 @@
         methods: {
             //编辑
             handleEdit() {
-                axios.post("/checkgroup/edit.do?checkitemIds=" + this.checkitemIds, this.formData).then((res) => {
-                    if (res.data.flag) {
-                        //执行成功，关闭新增窗口
-                        this.dialogFormVisible4Edit = false;
-                        //弹出提示信息
-                        this.$message({
-                            type: 'success',
-                            message: res.data.message
+                this.$refs['dataEditForm'].validate((valid) => {
+                    if (valid) {
+                        axios.post("/checkgroup/edit.do?checkitemIds=" + this.checkitemIds, this.formData).then((res) => {
+                            //执行成功，关闭新增窗口
+                            this.dialogFormVisible4Edit = false;
+                            //分页查询
+                            this.findPage();
+                            if (res.data.flag) {
+                                //弹出提示信息
+                                this.$message({
+                                    type: 'success',
+                                    message: res.data.message
+                                });
+                            } else {
+                                //执行失败，弹出提示信息
+                                this.$message.error(res.data.message);
+                            }
                         });
-                        //分页查询
-                        this.findPage();
                     } else {
-                        //执行失败，弹出提示信息
-                        this.$message.error(res.data.message);
+                        //校验不通过，提示错误信息
+                        this.$message.error("表单数据校验失败，请检查输入是否正确！");
                     }
                 });
             },
@@ -306,20 +321,27 @@
                 //发送ajax请求，需要提交检查组基本信息和勾选的检查项信息
                 //console.log(this.formData);
                 //alert(this.checkitemIds);
-                axios.post("/checkgroup/add.do?checkitemIds=" + this.checkitemIds, this.formData).then((res) => {
-                    if (res.data.flag) {
-                        //执行成功，关闭新增窗口
-                        this.dialogFormVisible = false;
-                        //弹出提示信息
-                        this.$message({
-                            type: 'success',
-                            message: res.data.message
+                this.$refs['dataEditForm'].validate((valid) => {
+                    if (valid) {
+                        axios.post("/checkgroup/add.do?checkitemIds=" + this.checkitemIds, this.formData).then((res) => {
+                            //执行成功，关闭新增窗口
+                            this.dialogFormVisible = false;
+                            //分页查询
+                            this.findPage();
+                            if (res.data.flag) {
+                                //弹出提示信息
+                                this.$message({
+                                    type: 'success',
+                                    message: res.data.message
+                                });
+                            } else {
+                                //执行失败，弹出提示信息
+                                this.$message.error(res.data.message);
+                            }
                         });
-                        //分页查询
-                        this.findPage();
                     } else {
-                        //执行失败，弹出提示信息
-                        this.$message.error(res.data.message);
+                        //校验不通过，提示错误信息
+                        this.$message.error("表单数据校验失败，请检查输入是否正确！");
                     }
                 });
             },

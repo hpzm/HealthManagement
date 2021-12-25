@@ -95,6 +95,7 @@ public class OrderController {
             if(map==null){
                 return new Result(false, "请预约后查看");
             }
+
             return new Result(true, MessageConstant.QUERY_ORDER_SUCCESS, map);
         } catch (Exception e) {
             e.printStackTrace();
